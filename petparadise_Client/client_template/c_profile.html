@@ -1,0 +1,361 @@
+{% extends 'client_header.html' %}
+{% load static %}
+{% block content %}
+
+<!--Page Title-->
+<section class="page-title" style="background-image:url({% static 'images/background/7.jpg' %})">
+    <div class="auto-container">
+        <div class="clearfix">
+            <div class="pull-left">
+                <h1>Profile Detail</h1>
+            </div>
+            <div class="pull-right">
+                <ul class="page-breadcrumb">
+                    <li><a href="/client/show_home/">Home</a></li>
+                    <li>profile detail</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!--End Page Title-->
+<div class="sidebar-page-container">
+    <div class="auto-container">
+        <section class="content-section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <!--                                <div class="event-banner">-->
+                        <!--                                    <img src="{% static 'images/main-slider/image-2.jpg' %}" alt="">-->
+                        <!--                                </div>-->
+                        <div class="row">
+
+<!--                            <div class="col-lg-5 " style="position:relative; right: 100px; top:4px; ">-->
+<!--                                &lt;!&ndash; horizontal tab &ndash;&gt;-->
+<!--                                <div class="event-schedule-widget col-lg-20 col-md-30">-->
+<!--                                    <div class="media event-schedule">-->
+<!--                                        <div class="media-body">-->
+<!--                                            <h5>Profile Detail:</h5>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <ul class="list-group list-group">-->
+<!--                                        <li class="d-flex justify-content-between">-->
+<!--                                            Your Name:-->
+<!--                                            <span>{{ customer.c_name }}</span>-->
+<!--                                        </li>-->
+<!--                                        <li class="d-flex justify-content-between">-->
+<!--                                            Your Email:-->
+<!--                                            <span> {{ customer.c_email }}</span>-->
+<!--                                        </li>-->
+<!--                                        <li class="d-flex justify-content-between">-->
+<!--                                            Your Contact:-->
+<!--                                            <span>{{ customer.c_contact }}</span>-->
+<!--                                        </li>-->
+<!--                                        <li class="d-flex justify-content-between">-->
+<!--                                            Your Address:-->
+<!--                                            <span>{{ customer.c_address }}</span>-->
+
+<!--                                        </li>-->
+<!--                                        <li class="d-flex justify-content-between">-->
+<!--                                            Your Area:-->
+<!--                                            <span>{{ customer.area_id.area_name }}</span>-->
+<!--                                        </li>-->
+<!--                                        <li>-->
+<!--                                            Your Location:-->
+<!--                                            &lt;!&ndash;                                                    <div class="tab-pane" id="mapLocation" role="tabpanel">&ndash;&gt;-->
+<!--                                            &lt;!&ndash;                                                    <div style="width: 100%">&ndash;&gt;-->
+<!--                                            &lt;!&ndash;                                                        <iframe width="100%" height="600"&ndash;&gt;-->
+<!--                                            &lt;!&ndash;                                                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3670.335952949795!2d72.56169571480201!3d23.084794584921546!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e8374b5477f6b%3A0x5f3f75e33ebf4ede!2sIndralok%20Society%2C%20New%20Ranip%2C%20Ahmedabad%2C%20Gujarat%20380081!5e0!3m2!1sen!2sin!4v1645946267565!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"&ndash;&gt;-->
+<!--                                            &lt;!&ndash;                                                            frameborder="0" scrolling="no" marginheight="0"&ndash;&gt;-->
+<!--                                            &lt;!&ndash;                                                            marginwidth="0"><a&ndash;&gt;-->
+<!--                                            &lt;!&ndash;                                                                href="https://www.maps.ie/create-google-map/">Create&ndash;&gt;-->
+<!--                                            &lt;!&ndash;                                                                Google Map</a></iframe>&ndash;&gt;-->
+<!--                                            &lt;!&ndash;                                                    </div>&ndash;&gt;-->
+<!--                                            &lt;!&ndash;                                                    <br />&ndash;&gt;-->
+<!--                                            &lt;!&ndash;                                                </div>&ndash;&gt;-->
+<!--                                        </li>-->
+<!--                                    </ul>-->
+<!--                                </div>-->
+<!--                                &lt;!&ndash; .event-schedule-widget END &ndash;&gt;-->
+<!--                                &lt;!&ndash;                                        <div class="countdown-timer timer-style-2 mb-30" data-countdown="2021/12/12">&ndash;&gt;-->
+<!--                                &lt;!&ndash;                                            <span class="timer-count">661 <span class="timer-title">Days</span></span>&ndash;&gt;-->
+<!--                                &lt;!&ndash;                                            <span class="timer-count">23 <span class="timer-title">Hours</span></span>&ndash;&gt;-->
+<!--                                &lt;!&ndash;                                            <span class="timer-count">41 <span class="timer-title">Minutes</span></span>&ndash;&gt;-->
+<!--                                &lt;!&ndash;                                            <span class="timer-count">22 <span class="timer-title">Secods</span></span>&ndash;&gt;-->
+<!--                                &lt;!&ndash;                                        </div>&ndash;&gt;-->
+<!--                                &lt;!&ndash; .event-schedule-widget END &ndash;&gt;-->
+<!--                                &lt;!&ndash; End horizontal tab &ndash;&gt;-->
+<!--                            </div>-->
+
+                            <div class="col-lg-12 event-wraper">
+                                <div class="event-content">
+                                    <h4>Profile Information:</h4>
+
+                                </div>
+                                <!-- horizontal tab -->
+                                <div class="horizontal-tabs">
+                                    <!-- Nav tabs -->
+                                    <ul class="nav nav-tabs">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" data-bs-toggle="tab"
+                                               data-bs-target="#facilities">Profile</a>
+                                        </li>
+<!--                                        <li class="nav-item">-->
+<!--                                            <a class="nav-link" data-bs-toggle="tab"-->
+<!--                                               data-bs-target="#mapLocation">Map Location</a>-->
+<!--                                        </li>-->
+                                        <li class="nav-item">
+                                            <a class="nav-link" data-bs-toggle="tab"
+                                               data-bs-target="#contactUs">Edit Profile</a>
+                                        </li>
+                                    </ul>
+                                    <!-- .nav-tabs END -->
+                                    <!-- Tab panes -->
+                                    <div class="tab-content">
+                                        <div class="tab-pane fade show active" id="facilities" role="tabpanel">
+                                            <!--                                                    <p>663 million people drink dirty water. Learn how access to clean-->
+                                            <!--                                                        water can improve health, boost local econom mies. Lorem ipsum-->
+                                            <!--                                                        dolor sit amet, consectetur adipisicing elit, sed do eiusmod-->
+                                            <!--                                                        tempor incididunt ut labore ete dolore magna aliqua.</p>-->
+                                            <!--                                                    <div class="row">-->
+                                            <!--                                                        <div class="col-md-6">-->
+                                            <!--                                                            <ul class="unorder-list circle green-icon">-->
+                                            <!--                                                                <li>Assisting senior consultants in projects </li>-->
+                                            <!--                                                                <li>Share best practices and knowledge.</li>-->
+                                            <!--                                                                <li>Assisting senior consultants in projects </li>-->
+                                            <!--                                                            </ul>-->
+                                            <!--                                                        </div>-->
+                                            <!--                                                        <div class="col-md-6">-->
+                                            <!--                                                            <ul class="unorder-list circle green-icon">-->
+                                            <!--                                                                <li>Collaborate with technology, informations security,-->
+                                            <!--                                                                    and business partners </li>-->
+                                            <!--                                                                <li>Find and address performance issues.</li>-->
+                                            <!--                                                            </ul>-->
+                                            <!--                                                        </div>-->
+                                            <!--                                                    </div>-->
+                                            <div class="event-schedule-widget col-lg-20 col-md-30">
+                                                <div class="media event-schedule">
+                                                    <div class="media-body">
+                                                        <h5>Profile Detail:</h5>
+                                                    </div>
+                                                </div>
+                                                <ul class="list-group list-group">
+                                                    <li class="d-flex justify-content-between" style="font-size: 20px">
+                                                        Your Name:
+                                                        <span style="font-size: 20px">{{ customer.c_name }}</span>
+                                                    </li>
+                                                    <li class="d-flex justify-content-between" style="font-size: 20px">
+                                                        Your Email:
+                                                        <span style="font-size: 20px"> {{ customer.c_email }}</span>
+                                                    </li>
+                                                    <li class="d-flex justify-content-between" style="font-size: 20px">
+                                                        Your Contact:
+                                                        <span style="font-size: 20px">{{ customer.c_contact }}</span>
+                                                    </li>
+                                                    <li class="d-flex justify-content-between" style="font-size: 20px">
+                                                        Your Address:
+                                                        <span style="font-size: 20px">{{ customer.c_address }}</span>
+
+                                                    </li>
+                                                    <li class="d-flex justify-content-between" style="font-size: 20px">
+                                                        Your Area:
+                                                        <span style="font-size: 20px">{{ customer.area_id.area_name }}</span>
+                                                    </li>
+<!--                                                    <li>-->
+<!--                                                        Your Location:-->
+<!--                                                        &lt;!&ndash;                                                    <div class="tab-pane" id="mapLocation" role="tabpanel">&ndash;&gt;-->
+<!--                                                        &lt;!&ndash;                                                    <div style="width: 100%">&ndash;&gt;-->
+<!--                                                        &lt;!&ndash;                                                        <iframe width="100%" height="600"&ndash;&gt;-->
+<!--                                                        &lt;!&ndash;                                                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3670.335952949795!2d72.56169571480201!3d23.084794584921546!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e8374b5477f6b%3A0x5f3f75e33ebf4ede!2sIndralok%20Society%2C%20New%20Ranip%2C%20Ahmedabad%2C%20Gujarat%20380081!5e0!3m2!1sen!2sin!4v1645946267565!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"&ndash;&gt;-->
+<!--                                                        &lt;!&ndash;                                                            frameborder="0" scrolling="no" marginheight="0"&ndash;&gt;-->
+<!--                                                        &lt;!&ndash;                                                            marginwidth="0"><a&ndash;&gt;-->
+<!--                                                        &lt;!&ndash;                                                                href="https://www.maps.ie/create-google-map/">Create&ndash;&gt;-->
+<!--                                                        &lt;!&ndash;                                                                Google Map</a></iframe>&ndash;&gt;-->
+<!--                                                        &lt;!&ndash;                                                    </div>&ndash;&gt;-->
+<!--                                                        &lt;!&ndash;                                                    <br />&ndash;&gt;-->
+<!--                                                        &lt;!&ndash;                                                </div>&ndash;&gt;-->
+<!--                                                    </li>-->
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <!-- #facilities END -->
+                                        <div class="tab-pane" id="mapLocation" role="tabpanel">
+                                            <div style="width: 100%">
+                                                <iframe width="100%" height="600"
+                                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14680.551019378887!2d72.55200962749423!3d23.092052558684898!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e830ede7560fb%3A0xc887d54ce9cf98e6!2sNew%20Ranip%2C%20Ahmedabad%2C%20Gujarat%20380081!5e0!3m2!1sen!2sin!4v1645946148496!5m2!1sen!2sin"
+                                                        frameborder="0" scrolling="no" marginheight="0"
+                                                        marginwidth="0"><a
+                                                        href="https://www.maps.ie/create-google-map/">Create
+                                                    Google Map</a></iframe>
+                                            </div>
+                                            <br/>
+                                        </div>
+                                        <!-- #mapLocation END -->
+                                        <div class="tab-pane" id="contactUs" role="tabpanel">
+                                            <!--Form Column-->
+                                            <div class="form-column col-sm-12 col-12">
+                                                <!--Contact Form-->
+                                                <div class="contact-form">
+                                                    <form method="post" action="/client/update_profile/"
+                                                          id="contact-form">
+                                                        {% csrf_token %}
+                                                        <!--Form Group-->
+                                                        <div class="form-group">
+                                                            <input type="text" name="c_name" value="{{customer.c_name}}"
+                                                                   placeholder="Enter Name" required>
+                                                            <div class="invalid-feedback">
+                                                                Please fill in the name
+                                                            </div>
+                                                        </div>
+                                                        <!--Form Group-->
+                                                        <div class="form-group">
+                                                            <input type="email" name="c_email"
+                                                                   value="{{customer.c_email}}"
+                                                                   placeholder="Email Address" required>
+                                                        </div>
+                                                        <!--Form Group-->
+                                                        <div class="form-group">
+                                                            <input type="hidden" name="is_admin"
+                                                                   value="{{customer.is_admin}}"
+                                                                   required>
+                                                            <input type="hidden" name="c_password"
+                                                                   value="{{customer.c_password}}"
+                                                                   required>
+                                                        </div>
+                                                        <!--Form Group-->
+                                                        <div class="form-group">
+                                                            <input type="number" name="c_contact"
+                                                                   value="{{customer.c_contact}}"
+                                                                   placeholder="Contact" required>
+                                                        </div>
+                                                        <!--Form Group-->
+                                                        <div class="form-group">
+                                                            <input type="text" name="c_address"
+                                                                   value="{{customer.c_address}}"
+                                                                   placeholder="Address" required>
+                                                        </div>
+                                                        <!--Form Group-->
+                                                        <div class="form-group">
+                                                            <label>Area Id</label>
+                                                            <select class="form-control" name="area_id">
+                                                                <option selected>Choose...</option>
+                                                                {% for are in area %}
+                                                                <option value="{{are.area_id}}">{{are.area_name}}
+                                                                </option>
+                                                                {% endfor %}
+                                                            </select>
+                                                        </div>
+                                                        <!--Form Group-->
+                                                        <div class="form-group">
+                                                            <button type="submit"
+                                                                    class="theme-btn btn-style-four">Save
+                                                                Changes
+                                                            </button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                <!--Contact Form-->
+                                            </div>
+                                        </div>
+                                        <!-- #contactUs END -->
+                                    </div>
+                                </div>
+                                <!-- End horizontal tab -->
+<!--                                <div class="row mb-60">-->
+<!--                                    <div class="col-md-6 about-feature">-->
+<!--                                        <h3>Event Mission</h3>-->
+<!--                                        <p>663 million people drink dirty water. Learn how it access to clean-->
+<!--                                            water can improve health, boost local econom mies. Lorem ipsum dolor-->
+<!--                                            sit amet. consectetur adipisicing elit.</p>-->
+<!--                                    </div>-->
+<!--                                    <div class="col-md-6 about-feature">-->
+<!--                                        <h3>Event Vission</h3>-->
+<!--                                        <p>663 million people drink dirty water. Learn how it access to clean-->
+<!--                                            water can improve health, boost local econom mies. Lorem ipsum dolor-->
+<!--                                            sit amet. consectetur adipisicing elit.</p>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="about-feature">-->
+<!--                                    <h3>Our Vission</h3>-->
+<!--                                    <p class="lead">The Globian Fund for Charities seeks positive change around-->
+<!--                                        the world through support of non-profit organizations dedicated to-->
+<!--                                        social, cultural.</p>-->
+<!--                                </div>-->
+<!--                                <div class="row">-->
+<!--                                    <div class="col-md-4">-->
+<!--                                        <div class="service-promo">-->
+<!--                                            <span class="icon-water color-orange"></span>-->
+<!--                                            <h5>Care <br>For Pets</h5>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="col-md-4">-->
+<!--                                        <div class="service-promo">-->
+<!--                                            <span class="icon-groceries color-red"></span>-->
+<!--                                            <h5>Healty Food <br>For Pets</h5>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="col-md-4">-->
+<!--                                        <div class="service-promo">-->
+<!--                                            <span class="icon-open-book color-green"></span>-->
+<!--                                            <h5>Cure Gromming <br>For Every Pet</h5>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+                            </div>
+                            <!--                                    <div class="col-lg-4">-->
+                            <!--                                        &lt;!&ndash; horizontal tab &ndash;&gt;-->
+                            <!--                                        <div class="event-schedule-widget">-->
+                            <!--                                            <div class="media event-schedule">-->
+                            <!--                                                <div class="d-flex evnet-meta-date">-->
+                            <!--                                                    <span class="event-date">25</span>-->
+                            <!--                                                    <span class="event-month">May</span>-->
+                            <!--                                                </div>-->
+                            <!--                                                <div class="media-body">-->
+                            <!--                                                    <h5>Care For Every Pet</h5>-->
+                            <!--                                                </div>-->
+                            <!--                                            </div>-->
+                            <!--                                            <ul class="list-group list-group">-->
+                            <!--                                                <li class="d-flex justify-content-between">-->
+                            <!--                                                    Organized by:-->
+                            <!--                                                    <span>Kendar Tori</span>-->
+                            <!--                                                </li>-->
+                            <!--                                                <li class="d-flex justify-content-between">-->
+                            <!--                                                    Start:-->
+                            <!--                                                    <span>9.30 am</span>-->
+                            <!--                                                </li>-->
+                            <!--                                                <li class="d-flex justify-content-between">-->
+                            <!--                                                    Venue:-->
+                            <!--                                                    <span>National Park, NY</span>-->
+                            <!--                                                </li>-->
+                            <!--                                                <li class="d-flex justify-content-between">-->
+                            <!--                                                    Phone:-->
+                            <!--                                                    <span><a href="tel: 01 1260 5524">01 1260 5524</a> </span>-->
+                            <!--                                                </li>-->
+                            <!--                                                <li class="d-flex justify-content-between">-->
+                            <!--                                                    Email:-->
+                            <!--                                                    <span> <a-->
+                            <!--                                                            href="mailto: example@example.com">example@example.com</a></span>-->
+                            <!--                                                </li>-->
+                            <!--                                            </ul>-->
+                            <!--                                        </div>-->
+                            <!--                                        &lt;!&ndash; .event-schedule-widget END &ndash;&gt;-->
+                            <!--                                        <div class="countdown-timer timer-style-2 mb-30" data-countdown="2021/12/12">-->
+                            <!--                                            <span class="timer-count">661 <span class="timer-title">Days</span></span>-->
+                            <!--                                            <span class="timer-count">23 <span class="timer-title">Hours</span></span>-->
+                            <!--                                            <span class="timer-count">41 <span class="timer-title">Minutes</span></span>-->
+                            <!--                                            <span class="timer-count">22 <span class="timer-title">Secods</span></span>-->
+                            <!--                                        </div>-->
+                            <!--                                        &lt;!&ndash; .event-schedule-widget END &ndash;&gt;-->
+                            <!--                                        &lt;!&ndash; End horizontal tab &ndash;&gt;-->
+                            <!--                                    </div>-->
+                        </div>
+                    </div>
+                </div>
+                <!-- .row end -->
+            </div>
+            <!-- .container end -->
+        </section>
+    </div>
+</div>
+
+{% endblock %}

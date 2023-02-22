@@ -1,0 +1,76 @@
+{% extends 'client_header.html' %}
+{% load static %}
+{% block content %}
+
+<!--Page Title-->
+<section class="page-title" style="background-image:url({% static 'images/background/7.jpg' %})">
+    <div class="auto-container">
+        <div class="clearfix">
+            <div class="pull-left">
+                <h1>Products</h1>
+            </div>
+            <div class="pull-right">
+                <ul class="page-breadcrumb">
+                    <li><a href="/client/show_home/">Home</a></li>
+                    <li>products</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!--End Page Title-->
+<div class="sidebar-page-container wrapper-shop">
+    <div class="auto-container container">
+        <div class="row clearfix">
+            <!--Product Block-->
+            {% for p in pro %}
+            <div class="product-block col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <div class="inner-box">
+                    <div class="image">
+                        <a href="/client/pro_det/{{p.product_id}}">
+                            <img src="{% static 'assets/img/' %}{{p.product_image}}" height="200px" width="200px">
+                        </a>
+                    </div>
+                    <div class="lower-content">
+                        <div class="title"></div>
+                        <h3><a href="/client/pro_det/{{p.product_id}}">{{p.product_name}}</a></h3>
+                        <div class="price">${{p.product_price}}</div>
+                        <form method="POST" action="/client/insert_cart/{{p.product_id}}">
+                            {% csrf_token %}
+                            <input type="hidden" name="c_qty" value="1">
+                            <button class="theme-btn btn-style-eight">add to cart</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            <!--            &lt;!&ndash;Styled Pagination&ndash;&gt;-->
+
+            <!--            {% if p.has_other_pages %}-->
+            <!--            <ul class="styled-pagination text-center">-->
+            <!--                {% if p.has_previous %}-->
+            <!--                <li><a href="?page={{ p.previous_page_number }}" class="active">&laquo;</a></li>-->
+            <!--                {% else %}-->
+            <!--                <li class="disabled"><span>&laquo;</span></li>-->
+            <!--                {% endif %}-->
+            <!--                {% for i in p.paginator.page_range %}-->
+            <!--                {% if p.number == i %}-->
+            <!--                <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>-->
+            <!--                {% else %}-->
+            <!--                <li><a href="?page={{ i }}">{{ i }}</a></li>-->
+            <!--                {% endif %}-->
+            <!--                {% endfor %}-->
+            <!--                {% if p.has_next %}-->
+            <!--                <li><a href="?page={{ p.next_page_number }}">&raquo;</a></li>-->
+            <!--                {% else %}-->
+            <!--                <li class="disabled"><span>&raquo;</span></li>-->
+            <!--                {% endif %}-->
+            <!--            </ul>-->
+            <!--            {% endif %}-->
+            <!--End Styled Pagination-->
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

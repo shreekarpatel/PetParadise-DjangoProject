@@ -1,0 +1,43 @@
+{% extends 'client_header.html' %}
+{% load static %}
+{% block content %}
+
+<!--Page Title-->
+        <section class="page-title" style="background-image:url({% static 'images/background/7.jpg' %})">
+            <div class="auto-container">
+                <div class="clearfix">
+                    <div class="pull-left">
+                        <h1>Payment Status</h1>
+                    </div>
+                    <div class="pull-right">
+                        <ul class="page-breadcrumb">
+                            <li><a href="/client/show_home/">Home</a></li>
+<!--                            <li>404</li>-->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--End Page Title-->
+        <div class="sidebar-page-container">
+            <div class="auto-container">
+                <div class="page-head area-padding">
+                    <div class="container">
+                        <div class="error-page">
+                            <!-- map area -->
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="error-main-text text-center">
+                                        <h2 style="font-size:50px;color:black">Payment is</h2>
+                                        <h1 class="high-text" style="font-size:150px;color:red">Failed !</h1>
+                                        <a class="theme-btn btn-style-two error-btn" href="/client/show_home/">Back Homepage</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+{% endblock %}

@@ -1,0 +1,125 @@
+{% extends 'client_header.html' %}
+{% load static %}
+{% block content %}
+
+<!--Page Title-->
+        <section class="page-title" style="background-image:url({% static 'images/background/7.jpg' %}">
+
+            <div class="auto-container">
+                <div class="clearfix">
+                    <div class="pull-left">
+                        <h1>Wishlist</h1>
+                    </div>
+                    <div class="pull-right">
+                        <ul class="page-breadcrumb">
+                            <li><a href="/client/show_home/">Home</a></li>
+                            <li>Wishlist</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--End Page Title-->
+        <!--Sidebar Page Container-->
+        <div class="sidebar-page-container">
+            <div class="auto-container">
+                <div class="clearfix">
+                    <section class="padding ptb-xs-60">
+                        <div class="cart_page_area sp100">
+                            <div class="container">
+                                <div class="cart_table_wraper">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="cart_wrpaer">
+                                                <div class="table_scroll table-responsive">
+                                                    <table class="table">
+                                                        <thead class="dark-bg">
+                                                            <tr>
+                                                                <th><span>Product</span></th>
+                                                                <th><span>Product Name</span></th>
+                                                                <th><span>Date</span></th>
+                                                                <th><span></span></th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        {% for data in wishlist %}
+                                                            <tr>
+
+                                                                <td><img class="img-rounded"
+                                                                        src="{% static 'assets/img/' %}{{data.product_id.product_image}}" alt="">
+                                                                </td>
+
+                                                                <td class="padding_all">
+                                                                    <p>
+                                                                        {{data.product_id.product_name}}
+                                                                    </p>
+                                                                </td>
+
+                                                                <td class="padding_all">
+                                                                    <p>
+                                                                        {{data.w_date}}
+                                                                    </p>
+                                                                </td>
+                                                                <td class="padding_all"><a href="/client/del_wishlist/{{data.wishlist_id}}"><i
+                                                                            class="fa fa-times"></i></a></td>
+                                                            </tr>
+                                                           {% endfor %}
+                                                        </tbody>
+                                                    </table>
+                                                    <!-- table End -->
+                                                </div>
+                                                <div class="row cart_btns">
+                                                    <div class="col-lg-4 col-md-6 ">
+<!--                                                        <form action="#">-->
+<!--                                                            <input type="text" placeholder="Coupon Code"-->
+<!--                                                                class="common_btn cart_page_btn1" name="coupon">-->
+<!--                                                        </form>-->
+                                                    </div>
+                                                    <div class="col-lg-4 col-md-6">
+<!--                                                        <a class="theme-btn btn-style-three cart_page_btn2"-->
+<!--                                                            href="#">Apply coupon</a>-->
+                                                    </div>
+                                                    <!-- column End -->
+<!--                                                    <div class="col-lg-4 col-md-12 btn-three text-end">-->
+<!--                                                        <a class="theme-btn btn-style-three" href="/client/show_home/">Continue Shopping-->
+<!--                                                        </a>-->
+<!--                                                    </div>-->
+                                                    <!-- column End -->
+                                                </div>
+                                                <!-- cart_btns End -->
+                                            </div>
+                                        </div>
+                                        <!-- column End -->
+                                    </div>
+                                    <!-- row End -->
+<!--                                    <div class="row">-->
+<!--                                        <div class="col-12">-->
+<!--                                            <div class="cart_totals_area gray-bg">-->
+<!--                                                <ul>-->
+<!--                                                    <li>-->
+<!--                                                        Subtotal <span>$29.99</span>-->
+<!--                                                    </li>-->
+<!--                                                    <li>-->
+<!--                                                        Shipping Charge<span>free</span>-->
+<!--                                                    </li>-->
+<!--                                                    <li>-->
+<!--                                                        <strong>Total</strong><span><strong> $ 59.99 </strong></span>-->
+<!--                                                    </li>-->
+<!--                                                </ul>-->
+<!--                                                <a class="theme-btn btn-style-three" href="checkout.html">Proceed To-->
+<!--                                                    Checkout</a>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                        &lt;!&ndash; column End &ndash;&gt;-->
+<!--                                    </div>-->
+                                    <!-- row End -->
+                                </div>
+                            </div>
+                            <!-- container End -->
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+
+{% endblock %}

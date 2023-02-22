@@ -1,0 +1,391 @@
+{% extends 'client_header.html' %}
+{% load static %}
+{% block content %}
+
+
+<!--Banner Section-->
+<section class="banner-section" style="background-image:url({%static 'images/background/pattern-4.png' %})">
+    <div class="auto-container">
+        <div class="single-item-carousel owl-carousel owl-theme">
+            {% for p in pro %}
+            <div class="slide">
+                <div class="row clearfix">
+                    <!--Content Column-->
+                    <div class="content-column col-md-5 col-sm-12 col-xs-12">
+                        <div class="inner-column">
+                            <h2>{{p.product_name}} <span></span></h2>
+                            <div class="text">{{p.product_description}}
+                            </div>
+                            <a href="/client/pro_det/{{p.product_id}}" class="theme-btn btn-style-four">Shop Now</a>
+                        </div>
+                    </div>
+                    <!--Image Column-->
+                    <div class="image-column col-md-7 col-sm-7 col-xs-12">
+                        <div class="inner-column">
+                            <!--                            <div class="price-box">-->
+                            <!--                                <div class="icon"><img src="{% static 'assets/img/' %}{{p.product_image}}" alt=""/></div>-->
+                            <!--&lt;!&ndash;                                <div class="discount">Save upto</div>&ndash;&gt;-->
+                            <!--&lt;!&ndash;                                <div class="price">45%</div>&ndash;&gt;-->
+                            <!--                            </div>-->
+                            <div class="image">
+                                <img src="{% static 'assets/img/' %}{{p.product_image}}" alt="" height="450"
+                                     width="450"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            <!--            <div class="slide">-->
+            <!--                <div class="row clearfix">-->
+            <!--                    &lt;!&ndash;Content Column&ndash;&gt;-->
+            <!--                    <div class="content-column col-md-5 col-sm-12 col-xs-12">-->
+            <!--                        <div class="inner-column">-->
+            <!--                            <h2>Vitamins & Supplements <span></span></h2>-->
+            <!--                            <div class="text">Fortified with Glucosamine, Chondroitin and MSM to help support-->
+            <!--                                the structural integrity of joints and connective tissues-->
+            <!--                            </div>-->
+            <!--                            <a href="/client/shop/1" class="theme-btn btn-style-four">Shop Now</a>-->
+            <!--                        </div>-->
+            <!--                    </div>-->
+            <!--                    &lt;!&ndash;Image Column&ndash;&gt;-->
+            <!--                    <div class="image-column col-md-7 col-sm-7 col-xs-12">-->
+            <!--                        <div class="inner-column">-->
+            <!--                            <div class="price-box">-->
+            <!--                                <div class="icon"><img src="{% static 'images/icons/price-icon.png' %}" alt=""/></div>-->
+            <!--&lt;!&ndash;                                <div class="discount">Save upto</div>&ndash;&gt;-->
+            <!--&lt;!&ndash;                                <div class="price">45%</div>&ndash;&gt;-->
+            <!--                            </div>-->
+            <!--                            <div class="image">-->
+            <!--                                <img src="{% static 'images/resource/product-1.png' %}" alt=""/>-->
+            <!--                            </div>-->
+            <!--                        </div>-->
+            <!--                    </div>-->
+            <!--                </div>-->
+            <!--            </div>-->
+            <!--            <div class="slide">-->
+            <!--                <div class="row clearfix">-->
+            <!--                    &lt;!&ndash;Content Column&ndash;&gt;-->
+            <!--                    <div class="content-column col-md-5 col-sm-12 col-xs-12">-->
+            <!--                        <div class="inner-column">-->
+            <!--                            <h2>Vitamins & Supplements <span></span></h2>-->
+            <!--                            <div class="text">Fortified with Glucosamine, Chondroitin and MSM to help support-->
+            <!--                                the structural integrity of joints and connective tissues-->
+            <!--                            </div>-->
+            <!--                            <a href="/client/shop/1" class="theme-btn btn-style-four">Shop Now</a>-->
+            <!--                        </div>-->
+            <!--                    </div>-->
+            <!--                    &lt;!&ndash;Image Column&ndash;&gt;-->
+            <!--                    <div class="image-column col-md-7 col-sm-7 col-xs-12">-->
+            <!--                        <div class="inner-column">-->
+            <!--                            <div class="price-box">-->
+            <!--                                <div class="icon"><img src="{% static 'images/icons/price-icon.png' %}" alt=""/></div>-->
+            <!--                                <div class="discount">Save upto</div>-->
+            <!--                                <div class="price">45%</div>-->
+            <!--                            </div>-->
+            <!--                            <div class="image">-->
+            <!--                                <img src="{% static 'images/resource/product-1.png' %}" alt=""/>-->
+            <!--                            </div>-->
+            <!--                        </div>-->
+            <!--                    </div>-->
+            <!--                </div>-->
+            <!--            </div>-->
+        </div>
+    </div>
+</section>
+<!--End Banner Section-->
+<!--Products Section-->
+<section class="products-section">
+    <div class="auto-container">
+        <!--Sec Title Two-->
+        <div class="sec-title-two centered">
+            <div class="title-icon">
+                <img src="{% static 'images/icons/title-icon.png' %}" alt=""/>
+            </div>
+            <h2>Recent Products</h2>
+        </div>
+        <div class="row clearfix">
+            <!--Product Block-->
+            {% for p in pro %}
+            <div class="product-block col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <div class="inner-box">
+                    <div class="image">
+                        <a href="/client/pro_det/{{p.product_id}}"><img
+                                src="{% static 'assets/img/' %}{{p.product_image}}" height="273px" width="260px"></a>
+                    </div>
+
+                    <div class="lower-content">
+                                                <div class="title"></div>
+                        <h3><a href="/client/pro_det/{{p.product_id}}">{{p.product_name}}</a></h3>
+                        <div class="price">${{p.product_price}}</div>
+                        <form method="POST" action="/client/insert_cart/{{p.product_id}}">
+                            {% csrf_token %}
+                            <input type="hidden" name="c_qty" value="1">
+                            <button class="theme-btn btn-style-eight">add to cart</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<!--End Products Section-->
+<!--Discount Section-->
+<!--<section class="discount-section">-->
+<!--    <div class="auto-container">-->
+<!--        <div class="inner-container" style="background-image:url({%static 'images/background/8.jpg' %})">-->
+<!--            <div class="content">-->
+<!--                <div class="deal">Deal of the Day!</div>-->
+<!--                <h2>Food & Toys Discounts</h2>-->
+<!--                <div class="discount-price">$145.00 <span>$250.00</span></div>-->
+<!--                <div class="text">Well gaudy hound hired set flailed much followed maternal <br> sed crudely-->
+<!--                    aloof more save groomed.-->
+<!--                </div>-->
+<!--                <div class="time-counter">-->
+<!--                    <div class="time-countdown clearfix" data-countdown="2023/5/17"></div>-->
+<!--                </div>-->
+<!--                <a href="#" class="theme-btn btn-style-nine">view details</a>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>-->
+<!--End Discount Section-->
+<!--Popular Products Section-->
+<section class="popular-products-section">
+    <div class="auto-container">
+        <!--Sec Title Two-->
+        <div class="sec-title-two centered">
+            <div class="title-icon">
+                <img src="{% static 'images/icons/title-icon.png' %}" alt=""/>
+            </div>
+            <h2>Popular Products</h2>
+        </div>
+        <!--MixitUp Galery-->
+        <div class="mixitup-gallery">
+            <!--Filter-->
+            <div class="filters text-center clearfix">
+                <ul class="filter-tabs filter-btns clearfix">
+                    <!--                    <li class="active filter" data-role="button" data-filter="all">All</li>-->
+                    <!--                    <li class="filter" data-role="button" data-filter=".stuff">Grooming Stuff</li>-->
+                    <!--                    <li class="filter" data-role="button" data-filter=".health">Health</li>-->
+                    <!--                    <li class="filter" data-role="button" data-filter=".nutritions">Nutritions</li>-->
+                    <!--                    <li class="filter" data-role="button" data-filter=".toys">Toys</li>-->
+                </ul>
+            </div>
+            <div class="filter-list row clearfix">
+                <!--Product Block-->
+                {% for p in pro %}
+                <div class="product-block col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                    <div class="inner-box">
+                            <div class="image">
+                            <a href="/client/pro_det/{{p.product_id}}"><img
+                                    src="{% static 'assets/img/' %}{{p.product_image}}" height="273px" width="260px"
+                                    ></a>
+                        </div>
+                        <div class="lower-content">
+                            <!--                            <div class="title">Health Food</div>-->
+                            <h3><a href="/client/pro_det/{{p.product_id}}">{{p.product_name}}</a></h3>
+                            <div class="price">${{p.product_price}}</div>
+                            <form method="POST" action="/client/insert_cart/{{p.product_id}}">
+                                {% csrf_token %}
+                                <input type="hidden" name="c_qty" value="1">
+                                <button class="theme-btn btn-style-eight">add to cart</button>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+                <!--                        <div class="product-block mix all col-lg-3 col-md-4 col-sm-6 col-xs-12">-->
+                <!--                            <div class="inner-box">-->
+                <!--                                <div class="image">-->
+                <!--                                    <img src="{% static 'images/resource/products/5.jpg' %}" alt="" />-->
+                <!--                                </div>-->
+                <!--                                <div class="lower-content">-->
+                <!--                                    <div class="title">Accessories</div>-->
+                <!--                                    <h3><a href="product-details.html">Scented Shampoo</a></h3>-->
+                <!--                                    <div class="price">$10.50</div>-->
+                <!--                                    <a href="#" class="theme-btn btn-style-eight">add to cart</a>-->
+                <!--                                </div>-->
+                <!--                            </div>-->
+                <!--                        </div>-->
+                <!--Product Block-->
+                <!--                        <div class="product-block mix nutritions all col-lg-3 col-md-4 col-sm-6 col-xs-12">-->
+                <!--                            <div class="inner-box">-->
+                <!--                                <div class="image">-->
+                <!--                                    <img src="{% static 'images/resource/products/6.jpg' %}" alt="" />-->
+                <!--                                </div>-->
+                <!--                                <div class="lower-content">-->
+                <!--                                    <div class="title">Accessories</div>-->
+                <!--                                    <h3><a href="product-details.html">Chukit Indoor Bell</a></h3>-->
+                <!--                                    <div class="price">$145.00</div>-->
+                <!--                                    <a href="#" class="theme-btn btn-style-eight">add to cart</a>-->
+                <!--                                </div>-->
+                <!--                            </div>-->
+                <!--                        </div>-->
+                <!--Product Block-->
+                <!--                        <div class="product-block mix stuff health all col-lg-3 col-md-4 col-sm-6 col-xs-12">-->
+                <!--                            <div class="inner-box">-->
+                <!--                                <div class="image">-->
+                <!--                                    <img src="{% static 'images/resource/products/7.jpg' %}" alt="" />-->
+                <!--                                </div>-->
+                <!--                                <div class="lower-content">-->
+                <!--                                    <div class="title">Pets Toys</div>-->
+                <!--                                    <h3><a href="product-details.html">Oatmeal Shampoo</a></h3>-->
+                <!--                                    <div class="price">$145.00</div>-->
+                <!--                                    <a href="#" class="theme-btn btn-style-eight">add to cart</a>-->
+                <!--                                </div>-->
+                <!--                            </div>-->
+                <!--                        </div>-->
+                <!--Product Block-->
+                <!--                        <div class="product-block mix nutritions stuff all col-lg-3 col-md-4 col-sm-6 col-xs-12">-->
+                <!--                            <div class="inner-box">-->
+                <!--                                <div class="image">-->
+                <!--                                    <img src="{% static 'images/resource/products/8.jpg' %}" alt="" />-->
+                <!--                                </div>-->
+                <!--                                <div class="lower-content">-->
+                <!--                                    <div class="title">Accessories</div>-->
+                <!--                                    <h3><a href="product-details.html">Pets Variety Pack</a></h3>-->
+                <!--                                    <div class="price">$8.15</div>-->
+                <!--                                    <a href="#" class="theme-btn btn-style-eight">add to cart</a>-->
+                <!--                                </div>-->
+                <!--                            </div>-->
+                <!--                        </div>-->
+                <!--Product Block-->
+                <!--                        <div class="product-block mix health all col-lg-3 col-md-4 col-sm-6 col-xs-12">-->
+                <!--                            <div class="inner-box">-->
+                <!--                                <div class="image">-->
+                <!--                                    <img src="{% static 'images/resource/products/9.jpg' %}" alt="" />-->
+                <!--                                </div>-->
+                <!--                                <div class="lower-content">-->
+                <!--                                    <div class="title">Accessories</div>-->
+                <!--                                    <h3><a href="product-details.html">Full Nursing Kit</a></h3>-->
+                <!--                                    <div class="price">$5.66</div>-->
+                <!--                                    <a href="#" class="theme-btn btn-style-eight">add to cart</a>-->
+                <!--                                </div>-->
+                <!--                            </div>-->
+                <!--                        </div>-->
+                <!--Product Block-->
+                <!--                        <div class="product-block mix nutritions all col-lg-3 col-md-4 col-sm-6 col-xs-12">-->
+                <!--                            <div class="inner-box">-->
+                <!--                                <div class="image">-->
+                <!--                                    <img src="{% static 'images/resource/products/10.jpg' %}" alt="" />-->
+                <!--                                </div>-->
+                <!--                                <div class="lower-content">-->
+                <!--                                    <div class="title">medical</div>-->
+                <!--                                    <h3><a href="product-details.html">Small Animal Bandage</a></h3>-->
+                <!--                                    <div class="price">$145.00</div>-->
+                <!--                                    <a href="#" class="theme-btn btn-style-eight">add to cart</a>-->
+                <!--                                </div>-->
+                <!--                            </div>-->
+                <!--                        </div>-->
+                <!--Product Block-->
+                <!--                        <div class="product-block mix toys health stuff all col-lg-3 col-md-4 col-sm-6 col-xs-12">-->
+                <!--                            <div class="inner-box">-->
+                <!--                                <div class="image">-->
+                <!--                                    <img src="{% static 'images/resource/products/11.jpg' %}" alt="" />-->
+                <!--                                </div>-->
+                <!--                                <div class="lower-content">-->
+                <!--                                    <div class="title">Accessories</div>-->
+                <!--                                    <h3><a href="product-details.html">Chicken Flavor Food</a></h3>-->
+                <!--                                    <div class="price">$85.90</div>-->
+                <!--                                    <a href="#" class="theme-btn btn-style-eight">add to cart</a>-->
+                <!--                                </div>-->
+                <!--                            </div>-->
+                <!--                        </div>-->
+                <!--Product Block-->
+                <!--                        <div class="product-block mix health stuff all col-lg-3 col-md-4 col-sm-6 col-xs-12">-->
+                <!--                            <div class="inner-box">-->
+                <!--                                <div class="image">-->
+                <!--                                    <img src="{% static 'images/resource/products/12.jpg' %}" alt="" />-->
+                <!--                                </div>-->
+                <!--                                <div class="lower-content">-->
+                <!--                                    <div class="title">Accessories</div>-->
+                <!--                                    <h3><a href="product-details.html">Dog & Cat Nail Grinder Kit</a></h3>-->
+                <!--                                    <div class="price">$29.80</div>-->
+                <!--                                    <a href="#" class="theme-btn btn-style-eight">add to cart</a>-->
+                <!--                                </div>-->
+                <!--                            </div>-->
+                <!--                        </div>-->
+            </div>
+        </div>
+    </div>
+</section>
+<!--End Popular Products Section-->
+<!--Featured Section Three-->
+<section class="featured-section-two">
+    <div class="auto-container">
+        <div class="row clearfix">
+            <!--Featured Block Three-->
+            <div class="featured-block-three col-lg-4 col-md-6 col-sm-12">
+                <div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms"
+                     style="background-image:url({%static 'images/resource/featured-bg.png' %})">
+                    <div class="content">
+                        <div class="icon-box">
+                            <span class="icon flaticon-truck"></span>
+                        </div>
+                        <h3> Delivery Charge</h3>
+                        <div class="text">on one order $5</div>
+                    </div>
+                </div>
+            </div>
+            <!--Featured Block Three-->
+            <div class="featured-block-three col-lg-4 col-md-6 col-sm-12">
+                <div class="inner-box wow fadeInLeft" data-wow-delay="400ms" data-wow-duration="1500ms"
+                     style="background-image:url({%static 'images/resource/featured-bg.png' %})">
+                    <div class="content">
+                        <div class="icon-box">
+                            <span class="icon flaticon-loading"></span>
+                        </div>
+                        <h3>Flexible Return Policy</h3>
+                        <div class="text">If ordered items damaged</div>
+                    </div>
+                </div>
+            </div>
+            <!--Featured Block Three-->
+            <div class="featured-block-three col-lg-4 col-md-6 col-sm-12">
+                <div class="inner-box wow fadeInLeft" data-wow-delay="800ms" data-wow-duration="1500ms"
+                     style="background-image:url({%static 'images/resource/featured-bg.png' %})">
+                    <div class="content">
+                        <div class="icon-box">
+                            <span class="icon flaticon-credit-card"></span>
+                        </div>
+                        <h3>Secure Payment Gateway</h3>
+                        <div class="text">100% secured merchant</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--End Featured Section Three-->
+<!--Info Section-->
+<section class="info-section" style="background-image:url({%static 'images/background/7.jpg' %})">
+    <div class="auto-container clearfix">
+        <ul class="info-lists">
+            <li><span class="icon fa fa-phone-square"></span>Call Support:
+                <strong> <a href="tel:+919328011163">+919328011163</a></strong></li>
+            <li><span class="icon fa fa-envelope"></span>Support us:
+                <strong><a href="mailto: Petparadise078@gmail.com">Petparadise078@gmail.com</a></strong></li>
+            <li><span class="icon fa fa-user-plus"></span>Join us Now:
+                <strong><a href="/client/c_login/">Login</a></strong>/<strong><a
+                        href="/client/register/">Register</a></strong>
+            </li>
+        </ul>
+        <!--Emailed Form-->
+<!--                <div class="emailed-form">-->
+<!--                    <form method="post" action="mailto: Petparadise078@gmail.com" enctype=”multipart/form-data”>-->
+<!--                        <div class="form-group">-->
+<!--                            <input type="email" name="text" value="" placeholder="Email ..." required>-->
+<!--                            <button type="submit" class="theme-btn">Submit</button>-->
+<!--                        </div>-->
+<!--                    </form>-->
+<!--                </div>-->
+        <!--End Emailed Form-->
+    </div>
+</section>
+<!--End Info Section-->
+
+{% endblock %}

@@ -1,0 +1,101 @@
+{% extends 'client_header.html' %}
+{% load static %}
+{% block content %}
+
+ <!--Page Title-->
+        <section class="page-title" style="background-image:url({% static 'images/background/7.jpg' %})">
+            <div class="auto-container">
+                <div class="clearfix">
+                    <div class="pull-left">
+                        <h1>Doctor Detail</h1>
+                    </div>
+                    <div class="pull-right">
+                        <ul class="page-breadcrumb">
+                            <li><a href="/client/show_home/">Home</a></li>
+                            <li>Doctor Detail</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--End Page Title-->
+        <div class="sidebar-page-container">
+            <div class="auto-container">
+                <div class="row clearfix">
+                    <!--Content Side / Blog Single-->
+                    {% for data in doctor_detail %}
+                    <div class="team-block col-md-4 col-sm-6 col-xs-12">
+                        <div class="inner-box">
+                            <div class="image">
+                                <a href="#"><img width="263" height="300" src="{% static 'assets/img/' %}{{data.doctor_image}}" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt=""></a>
+                            </div>
+                            <div class="lower-box">
+                                <h3><a href="#">{{data.doctor_name}}</a></h3>
+                                <div class="phno">
+                                    <i class="fa fa-phone"></i>{{data.doctor_contact}} </div>
+                                <div class="email">
+                                    <i class="fa fa-envelope"></i>{{data.doctor_email}} </div>
+                                <div class="social-box">
+                                    <a href="/client/c_appoint/{{data.doctor_id}}"><button type="submit" class="theme-btn btn-style-three" style="height: 5 0px; width: 320px;">Add Appointment</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+<!--                        <div class="row">-->
+<!--                            <div class="col-md-12">-->
+<!--                                <p>Abore et dolore magna aliqua ut enim minim veniam quis nostrud exercitation ullamco laboris nisi aliquip eiusmod tempor incididunt labore.</p>-->
+<!--                                <p>Abore et dolore magna aliqua ut enim minim veniam quis nostrud exercitation ullamco laboris nisi aliquip eiusmod tempor incididunt labore.Abore et dolore magna aliqua ut enim minim veniam quis nostrud exercitation ullamco laboris nisi aliquip eiusmod tempor incididunt labore.</p>-->
+<!--                            </div>-->
+<!--                        </div>-->
+                        <div class="memberdetails">
+                            <div class="row">
+                                <div class="col-md-3 title">
+                                    speciallity:
+                                </div>
+                                <div class="col-md-8 mdetails">
+                                    <strong> Pet Doctor</strong>
+                                </div>
+                            </div>
+
+<!--                            <div class="row">-->
+<!--                                <div class="col-md-3 title">-->
+<!--                                    availablity:-->
+<!--                                </div>-->
+<!--                                <div class="col-md-8 mdetails">-->
+<!--                                    <strong>Mon - Sat 9:00 am To 6:00 pm</strong>-->
+<!--                                </div>-->
+<!--                            </div>-->
+                            <div class="row">
+                                <div class="col-md-3 title">
+                                    department:
+                                </div>
+                                <div class="col-md-8 mdetails">
+                                    <strong>General Pet Diseases</strong>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3 title">
+                                    Contact:
+                                </div>
+                                <div class="col-md-8 mdetails">
+                                    <strong>{{data.doctor_contact}}</strong>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3 title">
+                                    Address:
+                                </div>
+                                <div class="col-md-8 mdetails">
+                                    <strong>{{data.doctor_address}}</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+
+{% endblock %}

@@ -1,0 +1,99 @@
+{% extends 'client_header.html' %}
+{% load static %}
+{% block content %}
+
+<!--Page Title-->
+<section class="page-title" style="background-image:url({% static 'images/background/7.jpg' %}">
+
+    <div class="auto-container">
+        <div class="clearfix">
+            <div class="pull-left">
+                <h1>Appointment</h1>
+            </div>
+            <div class="pull-right">
+                <ul class="page-breadcrumb">
+                    <li><a href="/client/show_home/">Home</a></li>
+                    <li>All Appointment</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!--End Page Title-->
+<!--Sidebar Page Container-->
+<div class="sidebar-page-container">
+    <div class="auto-container">
+        <div class="clearfix">
+            <section class="padding ptb-xs-60">
+                <div class="cart_page_area sp100">
+                    <div class="container">
+                        <div class="cart_table_wraper">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="cart_wrpaer">
+                                        <div class="table_scroll table-responsive">
+                                            <table class="table">
+                                                <thead class="dark-bg">
+                                                <tr>
+                                                    <th><span>Doctor</span></th>
+                                                    <th><span>Appointment Time</span></th>
+                                                    <th><span>Appointment Date</span></th>
+                                                    <th><span>Appointment Status</span></th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                {% for data in all_appoint %}
+                                                <tr>
+
+                                                    <td class="padding_all">
+                                                        <p>
+                                                            {{ data.doctor_id.doctor_name }}
+                                                        </p>
+                                                    </td>
+
+                                                    <td class="padding_all">
+                                                        <p>
+                                                            {{ data.appointment_time }}
+                                                        </p>
+                                                    </td>
+
+                                                    <td class="padding_all">
+                                                        <p>
+                                                            {{ data.appointment_date }}
+                                                        </p>
+                                                    </td>
+
+                                                    <td class="padding_all">
+                                                        <p>
+                                                            {% if data.appointment_status == 0 %}
+                                                            Pending
+                                                            {% elif data.appointment_status == 1 %}
+                                                            Accepted
+                                                            {% elif data.appointment_status == 2 %}
+                                                            Rejected
+                                                            {% endif %}
+                                                        </p>
+                                                    </td>
+                                                </tr>
+                                                {% endfor %}
+                                                </tbody>
+                                            </table>
+                                            <!-- table End -->
+                                        </div>
+                                        <!-- cart_btns End -->
+                                    </div>
+                                </div>
+                                <!-- column End -->
+                            </div>
+                            <!-- row End -->
+                            <!-- row End -->
+                        </div>
+                    </div>
+                    <!-- container End -->
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

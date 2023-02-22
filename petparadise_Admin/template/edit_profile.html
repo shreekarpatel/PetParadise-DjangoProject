@@ -1,0 +1,461 @@
+{% extends 'admin_header.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Main Content -->
+      <div class="main-content">
+        <section class="section">
+          <div class="section-header">
+						<div class="row">
+							<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+								<div class="section-header-breadcrumb-content">
+									<h1>Profile</h1>
+                  <div class="section-header-breadcrumb">
+                    <div class="breadcrumb-item active"><a href="/admin_dash/"><i class="fas fa-home"></i></a></div>
+<!--                    <div class="breadcrumb-item"><a href="#">Required Pages</a></div>-->
+                    <div class="breadcrumb-item"><a href="#">Profile</a></div>
+                  </div>
+								</div>
+							</div>
+<!--							<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">-->
+<!--								<div class="section-header-breadcrumb-chart float-right">-->
+<!--									<div class="breadcrumb-chart m-l-50">-->
+<!--										<div class="float-right">-->
+<!--											<div class="icon m-b-10">-->
+<!--												<div class="chart header-bar">-->
+<!--													<canvas width="49" height="40" ></canvas>-->
+<!--												</div>-->
+<!--											</div>-->
+<!--										</div>-->
+<!--										<div class="float-right m-r-5 m-l-10 m-t-1">-->
+<!--											<div class="chart-info">-->
+<!--												<span>$10,415</span>-->
+<!--												<p>Last Week</p>-->
+<!--											</div>-->
+<!--										</div>-->
+<!--									</div>-->
+
+<!--									<div class="breadcrumb-chart m-l-50">-->
+<!--										<div class="float-right">-->
+<!--											<div class="icon m-b-10">-->
+<!--												<div class="chart header-bar2">-->
+<!--													<canvas width="49" height="40" ></canvas>-->
+<!--												</div>-->
+<!--											</div>-->
+<!--										</div>-->
+<!--										<div class="float-right m-r-5 m-l-10 m-t-1">-->
+<!--											<div class="chart-info">-->
+<!--												<span>$22,128</span>-->
+<!--												<p>Last Month</p>-->
+<!--											</div>-->
+<!--										</div>-->
+<!--									</div>-->
+<!--								</div>-->
+<!--							</div>-->
+						</div>
+					</div>
+          <div class="section-body">
+          	<div class="row mt-sm-4 background-image-body">
+          		<div class="col-md-12 col-lg-12 box-center">
+          			<div class="row author-box">
+          				<img alt="image" src="{% static 'assets/img/shreekarpatel3.jpg' %}" class="rounded-circle author-box-picture box-center mt-4">
+          			</div>
+         			<div class="row author-box">
+          				<div class="page-inner box-center align-center">
+            				<h2><a href="#">Shreekar Patel</a></h2>
+            				<div class="page-description">
+<!--              					<h5>Web Developer</h5>-->
+            				</div>
+          				</div>
+          			</div>
+<!--          			<div class="row author-box mb-4">-->
+<!--	          			<div class="box-center align-center">-->
+<!--	                      <div class="mb-2 mt-3">-->
+<!--	                        <h6>Follow Hasan On</h6>-->
+<!--	                      </div>-->
+<!--	                      <a href="#" class="btn btn-social-icon mr-1 btn-facebook">-->
+<!--	                        <i class="fab fa-facebook-f"></i>-->
+<!--	                      </a>-->
+<!--	                      <a href="#" class="btn btn-social-icon mr-1 btn-twitter">-->
+<!--	                        <i class="fab fa-twitter"></i>-->
+<!--	                      </a>-->
+<!--	                      <a href="#" class="btn btn-social-icon mr-1 btn-github">-->
+<!--	                        <i class="fab fa-github"></i>-->
+<!--	                      </a>-->
+<!--	                      <a href="#" class="btn btn-social-icon mr-1 btn-instagram">-->
+<!--	                        <i class="fab fa-instagram"></i>-->
+<!--	                      </a>-->
+<!--	                      <div class="w-100 d-sm-none"></div>-->
+<!--	                    </div>-->
+<!--          			</div>-->
+          		</div>
+          	</div>
+            <div class="row mt-sm-2">
+              <div class="col-15 col-md-15 col-lg-4">
+                <div class="card">
+                  <div class="card-header">
+                    <h4>Personal Details</h4>
+                  </div>
+                  <div class="card-body">
+                    <div class="py-4">
+                      <p class="clearfix">
+                        <span class="float-left">
+                          Name
+                        </span>
+                        <span class="float-right text-muted">
+                          {{ customer.c_name }}
+                        </span>
+                      </p>
+                      <p class="clearfix">
+                        <span class="float-left">
+                          Email
+                        </span>
+                        <span class="float-right text-muted">
+                          {{ customer.c_email }}
+                        </span>
+                      </p>
+                      <p class="clearfix">
+                        <span class="float-left">
+                          Contact
+                        </span>
+                        <span class="float-right text-muted">
+                          {{ customer.c_contact }}
+                        </span>
+                      </p>
+                      <p class="clearfix">
+                        <span class="float-left">
+                          Address
+                        </span>
+                        <span class="float-right text-muted">
+                          {{ customer.c_address }}
+                        </span>
+                      </p>
+                      <p class="clearfix">
+                        <span class="float-left">
+                          Area
+                        </span>
+                        <span class="float-right text-muted">
+                          {{ customer.area_id.area_name }}
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+<!--                <div class="card">-->
+<!--                  <div class="card-header">-->
+<!--                    <h4>Skills</h4>-->
+<!--                  </div>-->
+<!--                  <div class="card-body">-->
+<!--                    <ul class="list-unstyled user-progress list-unstyled-border list-unstyled-noborder">-->
+<!--                      <li class="media">-->
+<!--                        <div class="media-body">-->
+<!--                          <div class="media-title">Java</div>-->
+<!--                        </div>-->
+<!--                        <div class="media-progressbar p-t-5">-->
+<!--                          <div class="progress" data-height="15">-->
+<!--                            <div class="progress-bar bg-primary progress-bar-striped progress-bar-animated" data-width="70%">70%</div>-->
+<!--                          </div>-->
+<!--                        </div>-->
+<!--                      </li>-->
+<!--                      <li class="media">-->
+<!--                        <div class="media-body">-->
+<!--                          <div class="media-title">Web Design</div>-->
+<!--                        </div>-->
+<!--                        <div class="media-progressbar p-t-5">-->
+<!--                          <div class="progress" data-height="15">-->
+<!--                            <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" data-width="80%">80%</div>-->
+<!--                          </div>-->
+<!--                        </div>-->
+<!--                      </li>-->
+<!--                      <li class="media">-->
+<!--                        <div class="media-body">-->
+<!--                          <div class="media-title">Photoshop</div>-->
+<!--                        </div>-->
+<!--                        <div class="media-progressbar p-t-5">-->
+<!--                          <div class="progress" data-height="15">-->
+<!--                            <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" data-width="48%">48%</div>-->
+<!--                          </div>-->
+<!--                        </div>-->
+<!--                      </li>-->
+<!--                      <li class="media">-->
+<!--                        <div class="media-body">-->
+<!--                          <div class="media-title">Python</div>-->
+<!--                        </div>-->
+<!--                        <div class="media-progressbar p-t-5">-->
+<!--                          <div class="progress" data-height="15">-->
+<!--                            <div class="progress-bar bg-red progress-bar-striped progress-bar-animated" data-width="60%">60%</div>-->
+<!--                          </div>-->
+<!--                        </div>-->
+<!--                      </li>-->
+<!--                      <li class="media">-->
+<!--                        <div class="media-body">-->
+<!--                          <div class="media-title">laravel</div>-->
+<!--                        </div>-->
+<!--                        <div class="media-progressbar p-t-5">-->
+<!--                          <div class="progress" data-height="15">-->
+<!--                            <div class="progress-bar bg-blue progress-bar-striped progress-bar-animated" data-width="30%">30%</div>-->
+<!--                          </div>-->
+<!--                        </div>-->
+<!--                      </li>-->
+<!--                    </ul>-->
+<!--                  </div>-->
+<!--                </div>-->
+              </div>
+              <div class="col-15 col-md-15 col-lg-8">
+                <div class="card">
+                  <div class="padding-20">
+                    <ul class="nav nav-pills mb-1" id="myTab2" role="tablist">
+<!--                      <li class="nav-item">-->
+<!--                        <a class="nav-link " id="home-tab2" data-toggle="tab" href="#about" role="tab"-->
+<!--                          aria-selected="true">About</a>-->
+<!--                      </li>-->
+                      <li class="nav-item">
+                        <a class="nav-link active" id="profile-tab2" data-toggle="tab" href="#settings" role="tab"
+                          aria-selected="false">Edit Profile</a>
+                      </li>
+                    </ul>
+                    <div class="tab-content tab-bordered" id="myTab3Content">
+<!--                      <div class="tab-pane fade" id="about" role="tabpanel" aria-labelledby="home-tab2">-->
+<!--                        <div class="row">-->
+<!--                          <div class="col-md-3 col-6 b-r">-->
+<!--                            <strong>Full Name</strong>-->
+<!--                            <br>-->
+<!--                            <p class="text-muted">Alexa Lopez</p>-->
+<!--                          </div>-->
+<!--                          <div class="col-md-3 col-6 b-r">-->
+<!--                            <strong>Mobile</strong>-->
+<!--                            <br>-->
+<!--                            <p class="text-muted">(0123) 456 7890</p>-->
+<!--                          </div>-->
+<!--                          <div class="col-md-3 col-6 b-r">-->
+<!--                            <strong>Email</strong>-->
+<!--                            <br>-->
+<!--                            <p class="text-muted">jessica@example.com</p>-->
+<!--                          </div>-->
+<!--                          <div class="col-md-3 col-6">-->
+<!--                            <strong>Location</strong>-->
+<!--                            <br>-->
+<!--                            <p class="text-muted">India</p>-->
+<!--                          </div>-->
+<!--                        </div>-->
+<!--                        <p class="m-t-30">Lorem Ipsum is simply dummy text of the printing and typesetting-->
+<!--                          industry. Lorem-->
+<!--                          Ipsum has been the industry's standard dummy text ever since the 1500s,-->
+<!--                          when-->
+<!--                          an unknown printer took a galley of type and scrambled it to make a-->
+<!--                          type-->
+<!--                          specimen book. It has survived not only five centuries, but also the-->
+<!--                          leap-->
+<!--                          into electronic typesetting, remaining essentially unchanged.</p>-->
+<!--                        <div class="section-title">Education</div>-->
+<!--                        <ul>-->
+<!--                          <li>Lorem Ipsum is simply dummy text of the printing and typesetting-->
+<!--                            industry.-->
+<!--                          </li>-->
+<!--                          <li>Lorem Ipsum is simply dummy text of the printing and typesetting-->
+<!--                            industry.-->
+<!--                          </li>-->
+<!--                          <li>Lorem Ipsum is simply dummy text of the printing and typesetting-->
+<!--                            industry.-->
+<!--                          </li>-->
+<!--                        </ul>-->
+<!--                        <div class="section-title">Experience</div>-->
+<!--                        <ul>-->
+<!--                          <li>Lorem Ipsum is simply dummy text of the printing and typesetting-->
+<!--                            industry.-->
+<!--                          </li>-->
+<!--                         <li>Lorem Ipsum is simply dummy text of the printing and typesetting-->
+<!--                            industry.-->
+<!--                          </li>-->
+<!--                          <li>Lorem Ipsum is simply dummy text of the printing and typesetting-->
+<!--                            industry.-->
+<!--                          </li>-->
+<!--                          <li>Lorem Ipsum is simply dummy text of the printing and typesetting-->
+<!--                            industry.-->
+<!--                          </li>-->
+<!--                        </ul>-->
+<!--                      </div>-->
+                      <div class="tab-pane fade show active" id="settings" role="tabpanel" aria-labelledby="profile-tab2">
+                        <form method="post" class="needs-validation" action="/update_edit/">
+                        {% csrf_token %}
+                          <div class="card-header">
+                            <h4>Edit Profile</h4>
+                          </div>
+                          <div class="card-body">
+                            <div class="row">
+                              <div class="form-group col-md-6 col-12">
+                                <label>Name</label>
+                                <input type="text" class="form-control" value="{{customer.c_name}}" name="c_name">
+                                <div class="invalid-feedback">
+                                  Please fill in the first name
+                                </div>
+                              </div>
+                              <div class="form-group col-md-6 col-12">
+                                <label>Area ID</label>
+                                <div class="col-sm-9">
+                                <select id="formrow-inputState" class="form-control" name="area_id">
+                                                <option selected>Choose...</option>
+                                                {% for are in area %}
+                                                <option value="{{are.area_id}}">{{are.area_name}}</option>
+                                                {% endfor %}
+                                </select>
+                                </div>
+                                <div class="invalid-feedback">
+                                  Please fill in the first name
+                                </div>
+                              </div>
+                              <div class="form-group col-md-6 col-12">
+                                <input type="hidden" class="form-control" value="{{customer.is_admin}}" name="is_admin">
+                                <input type="hidden" class="form-control" value="{{customer.c_password}}" name="c_password">
+                                <div class="invalid-feedback">
+                                  Please fill in the last name
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="form-group col-md-7 col-12">
+                                <label>Email</label>
+                                <input type="email" class="form-control" value="{{customer.c_email}}" name="c_email">
+                                <div class="invalid-feedback">
+                                  Please fill in the email
+                                </div>
+                              </div>
+                              <div class="form-group col-md-5 col-12">
+                                <label>Phone</label>
+                                <input type="number" class="form-control" value="{{customer.c_contact}}" name="c_contact">
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="form-group col-12">
+                                <label>Address</label>
+                                <input type="text" class="form-control" value="{{customer.c_address}}" name="c_address" >
+                              </div>
+                            </div>
+                            <div class="row">
+<!--                              <div class="form-group mb-0 col-12">-->
+<!--                                <div class="custom-control custom-checkbox">-->
+<!--                                  <input type="checkbox" name="remember" class="custom-control-input" id="newsletter">-->
+<!--                                  <label class="custom-control-label" for="newsletter">Subscribe to newsletter</label>-->
+<!--                                  <div class="text-muted form-text">-->
+<!--                                    You will get new information about products, offers and promotions-->
+<!--                                  </div>-->
+<!--                                </div>-->
+<!--                              </div>-->
+                            </div>
+                          </div>
+                          <div class="card-footer text-right">
+                            <button class="btn btn-primary">Save Changes</button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div class="settingSidebar">
+			<a href="javascript:void(0)" class="settingPanelToggle"> <i
+				class="fa fa-spin fa-cog"></i>
+			</a>
+			<div class="settingSidebar-body ps-container ps-theme-default">
+				<div class=" fade show active">
+					<div class="setting-panel-header">Theme Customizer</div>
+					<div class="p-15 border-bottom">
+						<h6 class="font-medium m-b-10">Theme Layout</h6>
+						<div class="selectgroup layout-color w-50">
+							<label> <span class="control-label p-r-20">Light</span>
+								<input type="radio" name="custom-switch-input" value="1"
+								class="custom-switch-input" checked> <span
+								class="custom-switch-indicator"></span>
+							</label>
+						</div>
+						<div class="selectgroup layout-color  w-50">
+							<label> <span class="control-label p-r-20">Dark&nbsp;</span>
+								<input type="radio" name="custom-switch-input" value="2"
+								class="custom-switch-input"> <span
+								class="custom-switch-indicator"></span>
+							</label>
+						</div>
+					</div>
+				</div>
+				<div class="p-15 border-bottom">
+					<h6 class="font-medium m-b-10">Sidebar Colors</h6>
+					<div class="sidebar-setting-options">
+						<ul class="sidebar-color list-unstyled mb-0">
+							<li title="white" class="active">
+								<div class="white"></div>
+							</li>
+							<li title="blue">
+								<div class="blue"></div>
+							</li>
+							<li title="coral">
+								<div class="coral"></div>
+							</li>
+							<li title="purple">
+								<div class="purple"></div>
+							</li>
+							<li title="allports">
+								<div class="allports"></div>
+							</li>
+							<li title="barossa">
+								<div class="barossa"></div>
+							</li>
+							<li title="fancy">
+								<div class="fancy"></div>
+							</li>
+						</ul>
+					</div>
+
+				</div>
+				<div class="p-15 border-bottom">
+					<h6 class="font-medium m-b-10">Theme Colors</h6>
+					<div class="theme-setting-options">
+						<ul class="choose-theme list-unstyled mb-0">
+							<li title="white" class="active">
+								<div class="white"></div>
+							</li>
+							<li title="blue">
+								<div class="blue"></div>
+							</li>
+							<li title="coral">
+								<div class="coral"></div>
+							</li>
+							<li title="purple">
+								<div class="purple"></div>
+							</li>
+							<li title="allports">
+								<div class="allports"></div>
+							</li>
+							<li title="barossa">
+								<div class="barossa"></div>
+							</li>
+							<li title="fancy">
+								<div class="fancy"></div>
+							</li>
+
+						</ul>
+					</div>
+				</div>
+				<div class="p-15 border-bottom">
+					<h6 class="font-medium m-b-10">Layout Options</h6>
+					<div class="theme-setting-options">
+						<label> <span class="control-label p-r-20">Compact
+								Sidebar Menu</span> <input type="checkbox"
+							name="custom-switch-checkbox" class="custom-switch-input"
+							id="mini_sidebar_setting"> <span
+							class="custom-switch-indicator"></span>
+						</label>
+					</div>
+				</div>
+				<div class="mt-3 mb-3 align-center">
+					<a href="#"
+						class="btn btn-icon icon-left btn-outline-primary btn-restore-theme">
+						<i class="fas fa-undo"></i> Restore Default
+					</a>
+				</div>
+			</div>
+		</div>
+      </div>
+{% endblock %}

@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" style="--pt_orange:#e7470c;">
+
+
+<!-- Mirrored from www.shmai.com/preview/pawrex-html/index-3.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 08 Jan 2022 09:56:34 GMT -->
+<head>
+    <meta charset="utf-8">
+    <title>Pet Paradise | Shop for Pets</title>
+    <!-- Stylesheets -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/responsive.css' %}" rel="stylesheet">
+    <!--Color Switcher Mockup-->
+    <link href="{% static 'css/color-switcher-design.css' %}" rel="stylesheet">
+    <!--Color Themes-->
+    <link id="theme-color-file" href="{% static 'css/color-themes/blue-theme.css' %}" rel="stylesheet">
+    <!--Favicon-->
+    <link rel="shortcut icon" href="{% static 'images/favicon.png' %}" type="image/x-icon">
+    <link rel="icon" href="{% static 'images/favicon.png' %}" type="image/x-icon">
+    <!-- Responsive -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
+    <!--[if lt IE 9]>
+    <script src="{% static 'js/respond.js' %}"></script><![endif]-->
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <script>
+
+		function load(){
+
+     			$.ajax({
+      				  url:"/client/client_header_menu/",
+        				  success: function(data)
+       				 {
+        				    $("#menu").html(data);
+
+       				 }
+   			 });
+
+   			 $.ajax({
+      				  url:"/client/client_header_menu1/",
+        				  success: function(data)
+       				 {
+        				    $("#menu1").html(data);
+
+       				 }
+   			 });
+
+
+		}
+
+    </script>
+</head>
+
+<body onload="load()">
+<div class="page-wrapper">
+    <!-- Preloader -->
+    <div class="preloader"></div>
+    <!-- Main Header-->
+    <header class="main-header header-style-three">
+        <!--Header Top Two-->
+        <!--            <div class="header-top-two">-->
+        <!--                <div class="auto-container">-->
+        <!--                    <div class="text">Get all the new stuff at discounted price. Shop with confidence today!</div>-->
+        <!--                </div>-->
+        <!--            </div>-->
+        <!--Header-Upper-->
+        <div class="header-upper">
+            <div class="auto-container clearfix">
+                <div class="pull-left form-column">
+                    <!--Product Form-->
+                    <div class="product-form">
+                        <form method="POST" action="/client/search12/">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <input type="text" name="product_name" value="" id="search"
+                                       placeholder="Search your product(s)"
+                                       required>
+                                <button type="submit" class="theme-btn"><span class="fa fa-search"></span></button>
+                            </div>
+                        </form>
+                    </div>
+                    <!--End Product Form-->
+                </div>
+                <div class="logo-outer">
+                    <div class="logo"><a href="/client/show_home/"><img src="{% static 'images/logo-3.png' %}" alt=""
+                                                                        title=""></a></div>
+                </div>
+                <div class="pull-right">
+                    <ul class="cart-list">
+                        {% if 'client_id' in request.session %}
+                        <li><a href="/client/select_profile/" style="font-size: 17px"><span class="icon fa fa-user"
+                                                                                            style="font-size: 17px"></span>
+                            profile</a></li>
+                        {% endif %}
+
+                        {% if 'client_id' in request.session %}
+                        <li><a href="/client/wishlist/" style="font-size: 17px"><span class="icon fa fa-heart"
+                                                                                      style="font-size: 17px"></span>
+                            WishList</a></li>
+                        {% endif %}
+
+                        {% if 'client_id' not in request.session %}
+                        <li><a href="/client/c_login/" style="font-size: 17px"><span class="icon fa fa-sign-in"
+                                                                                     style="font-size: 17px"></span>
+                            Login/Register</a></li>
+                        {% endif %}
+
+                        {% if 'client_id' in request.session %}
+                        <li class="cart" id="cart_co"><a href="/client/cart/"><span
+                                class="icon fa fa-shopping-basket"><span
+                        ></span></span></a></li>
+                        {% endif %}
+
+                        {% if 'client_id' in request.session %}
+                        <li><a href="/client/c_logout/" style="font-size: 17px"><span class="icon fa fa-sign-out"
+                                                                                      style="font-size: 17px"></span>
+                            Login Out</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--End Header Upper-->
+        <!--Header Lower-->
+        <div class="header-lower">
+            <div class="auto-container">
+                <div class="nav-outer clearfix">
+                    <!-- Main Menu -->
+                    <nav class="main-menu">
+                        <div class="navbar-header">
+                            <!-- Toggle Button -->
+                            <button type="button" class="navbar-toggle" data-bs-toggle="collapse"
+                                    data-bs-target=".navbar-collapse">
+                                <span><i class="fa fa-bars"></i></span>
+                            </button>
+                        </div>
+                        <div class="navbar-collapse collapse clearfix">
+                            <ul class="navigation clearfix">
+                                <li class="current dropdown"><a href="/client/show_home/">Home</a>
+                                    <!--                                        <ul>-->
+                                    <!--                                            <li><a href="index.html">Home 01</a></li>-->
+                                    <!--                                            <li><a href="index-2.html">Home 02</a></li>-->
+                                    <!--                                            <li><a href="index-3.html">Home 03</a></li>-->
+                                    <!--                                            <li><a href="index-4.html">Home 04</a></li>-->
+                                    <!--                                            <li><a href="index-5.html">Home 05</a></li>-->
+                                    <!--                                            <li class="dropdown"><a href="#">Header Styles</a>-->
+                                    <!--                                                <ul>-->
+                                    <!--                                                    <li><a href="index.html">Header 01</a></li>-->
+                                    <!--                                                    <li><a href="index-2.html">Header 02</a></li>-->
+                                    <!--                                                    <li><a href="index-3.html">Header 03</a></li>-->
+                                    <!--                                                    <li><a href="index-4.html">Header 04</a></li>-->
+                                    <!--                                                    <li><a href="index-5.html">Header 05</a></li>-->
+                                    <!--                                                </ul>-->
+                                    <!--                                            </li>-->
+                                    <!--                                        </ul>-->
+                                </li>
+                                <li class="dropdown"><a href="/client/about/">About Us</a>
+                                    <!--                                        <ul>-->
+                                    <!--                                            <li><a href="about-2.html">About 2</a></li>-->
+                                    <!--                                            <li><a href="about-pet.html">About 3</a></li>-->
+                                    <!--                                            <li><a href="about-pet2.html">About 4</a></li>-->
+                                    <!--                                        </ul>-->
+                                </li>
+                                <li class="dropdown"><a href="/client/shelter/">Shelter Home</a>
+                                    <!--                                        <ul>-->
+                                    <!--                                            <li><a href="pet-service.html">Services 01</a></li>-->
+                                    <!--                                        </ul>-->
+                                </li>
+                                <!--                                    <li class="dropdown"><a href="pets.html">Pets</a>-->
+                                <!--                                        <ul>-->
+                                <!--                                            <li><a href="buy-pet.html">Pets 01</a></li>-->
+                                <!--                                            <li><a href="pet-detail.html">Pet Detail</a></li>-->
+                                <!--                                            <li><a href="pet-profile.html">Pet Detail 02</a></li>-->
+                                <!--                                        </ul>-->
+                                <!--                                    </li>-->
+                                <li class="dropdown"><a href="#">Shop</a>
+                                    <ul id="menu" name="menu">
+
+                                        <!--                                                <ul>-->
+                                        <!--                                                    <li><a href="index.html">Header 01</a></li>-->
+                                        <!--                                                    <li><a href="index-2.html">Header 02</a></li>-->
+                                        <!--                                                    <li><a href="index-3.html">Header 03</a></li>-->
+                                        <!--                                                    <li><a href="index-4.html">Header 04</a></li>-->
+                                        <!--                                                    <li><a href="index-5.html">Header 05</a></li>-->
+                                        <!--                                                </ul>-->
+
+
+                                    </ul>
+                                </li>
+                                <li class="dropdown"><a href="/client/doctor/">Doctor</a>
+                                    <!--                                        <ul>-->
+                                    <!--                                            <li><a href="gallery.html">Gallery</a></li>-->
+                                    <!--                                            <li><a href="gallery-2.html">Gallery 02</a></li>-->
+                                    <!--                                            <li><a href="pet-gallery.html">Gallery 03</a></li>-->
+                                    <!--                                            <li><a href="pet-gallery2.html">Gallery 04</a></li>-->
+                                    <!--                                            <li><a href="404.html">Error</a></li>-->
+                                    <!--                                            <li><a href="pet-error.html">Error 01</a></li>-->
+                                    <!--                                            <li><a href="commingsoon.html">Comming Soon</a></li>-->
+                                    <!--                                            <li><a href="pet-coming.html">Comming Soon 01</a></li>-->
+                                    <!--                                            <li><a href="donation.html">Donation</a></li>-->
+                                    <!--                                            <li><a href="pet-donate.html">Donation 01</a></li>-->
+                                    <!--                                            <li><a href="appointment.html">Appointment</a></li>-->
+                                    <!--                                            <li><a href="pet-appoint.html">Appointment 01</a></li>-->
+                                    <!--                                        </ul>-->
+                                </li>
+                                <li class="dropdown"><a href="/client/gallery/">Gallery</a>
+                                    <!--                                        <ul>-->
+                                    <!--                                            <li><a href="jobs-list.html">Jobs</a></li>-->
+                                    <!--                                            <li><a href="pet-job.html">Jobs 01</a></li>-->
+                                    <!--                                            <li><a href="job-details.html">Job Detail</a></li>-->
+                                    <!--                                            <li><a href="job-profile.html">Job Detail 01</a></li>-->
+                                    <!--                                            <li><a href="login.html">Login</a></li>-->
+                                    <!--                                            <li><a href="pet-login.html">Login 01</a></li>-->
+                                    <!--                                            <li><a href="register.html">Register</a></li>-->
+                                    <!--                                            <li><a href="pet-register.html">Register 01</a></li>-->
+                                    <!--                                            <li><a href="team.html">Team</a></li>-->
+                                    <!--                                            <li><a href="pet-team.html">Team 01</a></li>-->
+                                    <!--                                            <li><a href="team-detail.html">Team Detail</a></li>-->
+                                    <!--                                            <li><a href="team-profile.html">Team Detail 01</a></li>-->
+                                    <!--                                            <li><a href="events.html">Events</a></li>-->
+                                    <!--                                            <li><a href="pet-event.html">Events 01</a></li>-->
+                                    <!--                                            <li><a href="event-single.html">Event Detail</a></li>-->
+                                    <!--                                            <li><a href="event-profile.html">Event Detail 01</a></li>-->
+                                    <!--                                            <li><a href="calculator.html">Calories Calculator</a></li>-->
+                                    <!--                                            <li><a href="pet-calorie.html">Calories Calculator 01</a></li>-->
+                                    <!--                                        </ul>-->
+                                </li>
+                                {% if 'client_id' in request.session %}
+                                <li class="dropdown"><a href="/client/c_order/">Order</a>
+                                    <!--                                        <ul>-->
+                                    <!--                                            <li><a href="blog.html">Our Blog</a></li>-->
+                                    <!--                                            <li><a href="blog2.html">Blog 02</a></li>-->
+                                    <!--                                            <li><a href="pet-blog.html">Blog 03</a></li>-->
+                                    <!--                                            <li><a href="pet-blog2.html">Blog 04</a></li>-->
+                                    <!--                                            <li><a href="blog-leftsidebar.html">Blog Right Sidebar</a></li>-->
+                                    <!--                                            <li><a href="pet-blog-right.html">Blog Right Sidebar 01</a></li>-->
+                                    <!--                                            <li><a href="blog-single.html">Blog Single</a></li>-->
+                                    <!--                                            <li><a href="blog-profile.html">Blog Single 01</a></li>-->
+                                    <!--                                        </ul>-->
+                                </li>
+                                {% else %}
+                                <li class="dropdown"><a href="/client/visitor/">Order</a>
+                                    <!--                                        <ul>-->
+                                    <!--                                            <li><a href="blog.html">Our Blog</a></li>-->
+                                    <!--                                            <li><a href="blog2.html">Blog 02</a></li>-->
+                                    <!--                                            <li><a href="pet-blog.html">Blog 03</a></li>-->
+                                    <!--                                            <li><a href="pet-blog2.html">Blog 04</a></li>-->
+                                    <!--                                            <li><a href="blog-leftsidebar.html">Blog Right Sidebar</a></li>-->
+                                    <!--                                            <li><a href="pet-blog-right.html">Blog Right Sidebar 01</a></li>-->
+                                    <!--                                            <li><a href="blog-single.html">Blog Single</a></li>-->
+                                    <!--                                            <li><a href="blog-profile.html">Blog Single 01</a></li>-->
+                                    <!--                                        </ul>-->
+                                </li>
+                                {% endif %}
+
+                                <li class="dropdown"><a href="/client/contact/">Contact Us</a>
+                                    <!--                                        <ul>-->
+                                    <!--                                            <li><a href="contact2.html">Contact 02</a></li>-->
+                                    <!--                                            <li><a href="pet-contact.html">Contact 03</a></li>-->
+                                    <!--                                            <li><a href="pet-contact2.html">Contact 04</a></li>-->
+                                    <!--                                        </ul>-->
+                                </li>
+                                {% if 'client_id' in request.session %}
+                                <li class="dropdown"><a href="/client/appoint_detail/">Appointment</a>
+                                    <!--                                        <ul>-->
+                                    <!--                                            <li><a href="contact2.html">Contact 02</a></li>-->
+                                    <!--                                            <li><a href="pet-contact.html">Contact 03</a></li>-->
+                                    <!--                                            <li><a href="pet-contact2.html">Contact 04</a></li>-->
+                                    <!--                                        </ul>-->
+                                </li>
+                                {% else %}
+                                <li class="dropdown"><a href="/client/visitor/">Appointment</a>
+                                    <!--                                        <ul>-->
+                                    <!--                                            <li><a href="contact2.html">Contact 02</a></li>-->
+                                    <!--                                            <li><a href="pet-contact.html">Contact 03</a></li>-->
+                                    <!--                                            <li><a href="pet-contact2.html">Contact 04</a></li>-->
+                                    <!--                                        </ul>-->
+                                </li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <!--End Header Lower-->
+        <!--Sticky Header-->
+        <div class="sticky-header">
+            <div class="auto-container clearfix">
+                <!--Logo-->
+                <div class="logo pull-left">
+                    <a href="index.html" class="img-responsive"><img src="{% static 'images/logo-3.png' %}" alt=""
+                                                                     title=""></a>
+                </div>
+                <!--Right Col-->
+                <div class="right-col pull-right">
+                    <!-- Main Menu -->
+                    <nav class="main-menu">
+                        <div class="navbar-header">
+                            <!-- Toggle Button -->
+                            <button type="button" class="navbar-toggle" data-bs-toggle="collapse"
+                                    data-bs-target=".navbar-collapse">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
+                        <div class="navbar-collapse collapse clearfix">
+                            <ul class="navigation clearfix">
+                                <li class="current dropdown"><a href="/client/show_home/">Home</a>
+                                    <!--                                        <ul>-->
+                                    <!--                                            <li><a href="index.html">Home 01</a></li>-->
+                                    <!--                                            <li><a href="index-2.html">Home 02</a></li>-->
+                                    <!--                                            <li><a href="index-3.html">Home 03</a></li>-->
+                                    <!--                                            <li><a href="index-4.html">Home 04</a></li>-->
+                                    <!--                                            <li><a href="index-5.html">Home 05</a></li>-->
+                                    <!--                                            <li class="dropdown"><a href="#">Header Styles</a>-->
+                                    <!--                                                <ul>-->
+                                    <!--                                                    <li><a href="index.html">Header 01</a></li>-->
+                                    <!--                                                    <li><a href="index-2.html">Header 02</a></li>-->
+                                    <!--                                                    <li><a href="index-3.html">Header 03</a></li>-->
+                                    <!--                                                    <li><a href="index-4.html">Header 04</a></li>-->
+                                    <!--                                                    <li><a href="index-5.html">Header 05</a></li>-->
+                                    <!--                                                </ul>-->
+                                    <!--                                            </li>-->
+                                    <!--                                        </ul>-->
+                                </li>
+                                <li class="dropdown"><a href="/client/about/">About Us</a>
+                                    <!--                                        <ul>-->
+                                    <!--                                            <li><a href="about-2.html">About 2</a></li>-->
+                                    <!--                                            <li><a href="about-pet.html">About 3</a></li>-->
+                                    <!--                                            <li><a href="about-pet2.html">About 4</a></li>-->
+                                    <!--                                        </ul>-->
+                                </li>
+                                <li class="dropdown"><a href="/client/shelter/">Shelter Home</a>
+                                    <!--                                        <ul>-->
+                                    <!--                                            <li><a href="pet-service.html">Services 01</a></li>-->
+                                    <!--                                        </ul>-->
+                                </li>
+                                <!--                                    <li class="dropdown"><a href="pets.html">Pets</a>-->
+                                <!--                                        <ul>-->
+                                <!--                                            <li><a href="buy-pet.html">Pets 01</a></li>-->
+                                <!--                                            <li><a href="pet-detail.html">Pet Detail</a></li>-->
+                                <!--                                            <li><a href="pet-profile.html">Pet Detail 02</a></li>-->
+                                <!--                                        </ul>-->
+                                <!--                                    </li>-->
+                                <li class="dropdown"><a href="#">Shop</a>
+                                    <ul id="menu1" name="menu1">
+
+                                        <!--                                        <ul>-->
+                                        <!--                                            <li><a href="shop.html">Shop</a></li>-->
+                                        <!--                                            <li><a href="pet-shop.html">Shop 01</a></li>-->
+                                        <!--                                            <li><a href="product-details.html">Product Detail</a></li>-->
+                                        <!--                                            <li><a href="pet-product.html">Product Detail 01</a></li>-->
+                                        <!--                                            <li><a href="cart.html">Cart</a></li>-->
+                                        <!--                                            <li><a href="pet-cart.html">Cart 01</a></li>-->
+                                        <!--                                            <li><a href="checkout.html">Check Out</a></li>-->
+                                        <!--                                            <li><a href="pet-checkout.html">Check Out 01</a></li>-->
+                                        <!--                                        </ul>-->
+                                    </ul>
+                                </li>
+                                <li class="dropdown"><a href="/client/doctor/">Doctor</a>
+                                    <!--                                        <ul>-->
+                                    <!--                                            <li><a href="gallery.html">Gallery</a></li>-->
+                                    <!--                                            <li><a href="gallery-2.html">Gallery 02</a></li>-->
+                                    <!--                                            <li><a href="pet-gallery.html">Gallery 03</a></li>-->
+                                    <!--                                            <li><a href="pet-gallery2.html">Gallery 04</a></li>-->
+                                    <!--                                            <li><a href="404.html">Error</a></li>-->
+                                    <!--                                            <li><a href="pet-error.html">Error 01</a></li>-->
+                                    <!--                                            <li><a href="commingsoon.html">Comming Soon</a></li>-->
+                                    <!--                                            <li><a href="pet-coming.html">Comming Soon 01</a></li>-->
+                                    <!--                                            <li><a href="donation.html">Donation</a></li>-->
+                                    <!--                                            <li><a href="pet-donate.html">Donation 01</a></li>-->
+                                    <!--                                            <li><a href="appointment.html">Appointment</a></li>-->
+                                    <!--                                            <li><a href="pet-appoint.html">Appointment 01</a></li>-->
+                                    <!--                                        </ul>-->
+                                </li>
+                                <li class="dropdown"><a href="/client/gallery/">Gallery</a>
+                                    <!--                                        <ul>-->
+                                    <!--                                            <li><a href="jobs-list.html">Jobs</a></li>-->
+                                    <!--                                            <li><a href="pet-job.html">Jobs 01</a></li>-->
+                                    <!--                                            <li><a href="job-details.html">Job Detail</a></li>-->
+                                    <!--                                            <li><a href="job-profile.html">Job Detail 01</a></li>-->
+                                    <!--                                            <li><a href="login.html">Login</a></li>-->
+                                    <!--                                            <li><a href="pet-login.html">Login 01</a></li>-->
+                                    <!--                                            <li><a href="register.html">Register</a></li>-->
+                                    <!--                                            <li><a href="pet-register.html">Register 01</a></li>-->
+                                    <!--                                            <li><a href="team.html">Team</a></li>-->
+                                    <!--                                            <li><a href="pet-team.html">Team 01</a></li>-->
+                                    <!--                                            <li><a href="team-detail.html">Team Detail</a></li>-->
+                                    <!--                                            <li><a href="team-profile.html">Team Detail 01</a></li>-->
+                                    <!--                                            <li><a href="events.html">Events</a></li>-->
+                                    <!--                                            <li><a href="pet-event.html">Events 01</a></li>-->
+                                    <!--                                            <li><a href="event-single.html">Event Detail</a></li>-->
+                                    <!--                                            <li><a href="event-profile.html">Event Detail 01</a></li>-->
+                                    <!--                                            <li><a href="calculator.html">Calories Calculator</a></li>-->
+                                    <!--                                            <li><a href="pet-calorie.html">Calories Calculator 01</a></li>-->
+                                    <!--                                        </ul>-->
+                                </li>
+                                {% if 'client_id' in request.session %}
+                                <li class="dropdown"><a href="/client/c_order/">Order</a>
+                                    <!--                                        <ul>-->
+                                    <!--                                            <li><a href="blog.html">Our Blog</a></li>-->
+                                    <!--                                            <li><a href="blog2.html">Blog 02</a></li>-->
+                                    <!--                                            <li><a href="pet-blog.html">Blog 03</a></li>-->
+                                    <!--                                            <li><a href="pet-blog2.html">Blog 04</a></li>-->
+                                    <!--                                            <li><a href="blog-leftsidebar.html">Blog Right Sidebar</a></li>-->
+                                    <!--                                            <li><a href="pet-blog-right.html">Blog Right Sidebar 01</a></li>-->
+                                    <!--                                            <li><a href="blog-single.html">Blog Single</a></li>-->
+                                    <!--                                            <li><a href="blog-profile.html">Blog Single 01</a></li>-->
+                                    <!--                                        </ul>-->
+                                </li>
+                                {% else %}
+                                <li class="dropdown"><a href="/client/visitor/">Order</a>
+                                    <!--                                        <ul>-->
+                                    <!--                                            <li><a href="blog.html">Our Blog</a></li>-->
+                                    <!--                                            <li><a href="blog2.html">Blog 02</a></li>-->
+                                    <!--                                            <li><a href="pet-blog.html">Blog 03</a></li>-->
+                                    <!--                                            <li><a href="pet-blog2.html">Blog 04</a></li>-->
+                                    <!--                                            <li><a href="blog-leftsidebar.html">Blog Right Sidebar</a></li>-->
+                                    <!--                                            <li><a href="pet-blog-right.html">Blog Right Sidebar 01</a></li>-->
+                                    <!--                                            <li><a href="blog-single.html">Blog Single</a></li>-->
+                                    <!--                                            <li><a href="blog-profile.html">Blog Single 01</a></li>-->
+                                    <!--                                        </ul>-->
+                                </li>
+                                {% endif %}
+                                <li class="dropdown"><a href="/client/contact/">Contact Us</a>
+                                    <!--                                        <ul>-->
+                                    <!--                                            <li><a href="contact2.html">Contact 02</a></li>-->
+                                    <!--                                            <li><a href="pet-contact.html">Contact 03</a></li>-->
+                                    <!--                                            <li><a href="pet-contact2.html">Contact 04</a></li>-->
+                                    <!--                                        </ul>-->
+                                </li>
+                                {% if 'client_id' in request.session %}
+                                <li class="dropdown"><a href="/client/appoint_detail/">Appointment</a>
+                                    <!--                                        <ul>-->
+                                    <!--                                            <li><a href="contact2.html">Contact 02</a></li>-->
+                                    <!--                                            <li><a href="pet-contact.html">Contact 03</a></li>-->
+                                    <!--                                            <li><a href="pet-contact2.html">Contact 04</a></li>-->
+                                    <!--                                        </ul>-->
+                                </li>
+                                {% else %}
+                                <li class="dropdown"><a href="/client/visitor/">Appointment</a>
+                                    <!--                                        <ul>-->
+                                    <!--                                            <li><a href="contact2.html">Contact 02</a></li>-->
+                                    <!--                                            <li><a href="pet-contact.html">Contact 03</a></li>-->
+                                    <!--                                            <li><a href="pet-contact2.html">Contact 04</a></li>-->
+                                    <!--                                        </ul>-->
+                                </li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </nav>
+                    <!-- Main Menu End-->
+                </div>
+            </div>
+        </div>
+        <!--End Sticky Header-->
+    </header>
+    <!--End Main Header -->
+
+    {% block content %}
+
+    {% endblock %}
+
+    <!--Main Footer-->
+    <footer class="main-footer">
+        <div class="auto-container">
+            <!--Widgets Section-->
+            <div class="widgets-section">
+                <div class="row clearfix">
+                    <!--big column-->
+                    <div class="big-column col-md-6 col-sm-12 col-xs-12">
+                        <div class="row clearfix">
+                            <!--Footer Column-->
+                            <div class="footer-column col-md-7 col-sm-6 col-xs-12">
+                                <div class="footer-widget logo-widget">
+                                    <div class="logo">
+                                        <a href="/client/show_home/"><img src="{% static 'images/logo-3.png' %}"
+                                                                          alt=""/></a>
+                                    </div>
+                                    <div class="text">We are going to build our project on “Pet Paradise "is an
+                                        interactive and user-friendly web application that provide the wide range of
+                                        Pets accessories to buy online.
+                                    </div>
+                                    <!--                                    <ul class="social-icon-two">-->
+                                    <!--                                        <li><a href="#"><span class="fa fa-twitter"></span></a></li>-->
+                                    <!--                                        <li><a href="#"><span class="fa fa-facebook-square"></span></a></li>-->
+                                    <!--                                        <li><a href="#"><span class="fa fa-google-plus"></span></a></li>-->
+                                    <!--                                        <li><a href="#"><span class="fa fa-youtube-play"></span></a></li>-->
+                                    <!--                                        <li><a href="#"><span class="fa fa-pinterest-p"></span></a></li>-->
+                                    <!--                                    </ul>-->
+                                </div>
+                            </div>
+                            <!--Footer Column-->
+                            <div class="footer-column col-md-5 col-sm-6 col-xs-12">
+                                <div class="footer-widget links-widget">
+                                    <h2>Other Pages</h2>
+                                    <ul class="links">
+                                        <li><a href="/client/show_home/">Home Page</a></li>
+                                        <li><a href="/client/about/">About us</a></li>
+                                        <li><a href="/client/doctor/">Our Doctor</a></li>
+                                        <!--                                        <li><a href="blog.html">Our News</a></li>-->
+                                        <li><a href="/client/contact/">Contact Us</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--big column-->
+                    <div class="big-column col-md-6 col-sm-12 col-xs-12">
+                        <div class="row clearfix">
+                            <!--Footer Column-->
+                            <div class="footer-column col-md-6 col-sm-6 col-xs-12">
+                                <div class="footer-widget posts-widget">
+                                    <h2>Recent Service</h2>
+                                    <!--Widget Post-->
+                                    <article class="widget-post">
+                                        <figure class="post-thumb"><a href="/client/shelter/"><img
+                                                src="{% static 'images/resource/post-thumb-1.jpg' %}" alt=""></a>
+                                        </figure>
+                                        <div class="text"><a href="/client/shelter/">We have best Pet Shleter home
+                                            information in area
+                                        </a></div>
+                                        <!--                                            <div class="post-info">Feb 15, 2021</div>-->
+                                    </article>
+                                    <!--Widget Post-->
+                                    <article class="widget-post">
+                                        <figure class="post-thumb"><a href="/client/doctor/"><img
+                                                src="{% static 'images/resource/post-thumb-2.jpg' %}" alt=""></a>
+                                        </figure>
+                                        <div class="text"><a href="/client/doctor/">We have best service for Pet
+                                            Veterinary
+                                            Doctor</a></div>
+                                        <!--                                            <div class="post-info">Feb 15, 2021</div>-->
+                                    </article>
+                                </div>
+                            </div>
+                            <!--Footer Column-->
+                            <div class="footer-column col-md-6 col-sm-6 col-xs-12">
+                                <div class="footer-widget info-widget">
+                                    <h2>Get In Touch</h2>
+                                    <ul>
+                                        <li><span class="icon fa fa-map-marker"></span>128,indralok society,Nr.GST Rly
+                                            <br> New Ranip 382480
+                                        </li>
+                                        <li>
+                                            <span class="icon fa fa-phone"></span>
+                                            <a href="tel:+919328011163">+919328011163 </a>
+                                        </li>
+                                        <li>
+                                            <span class="icon fa fa-envelope"></span>
+                                            <a href="mailto:Petparadise078@gmail.com"> Petparadise078@gmail.com </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="copyright">Copyrights 2022 <span>PETPARDISE</span> • All Rights Reserved.</div>
+            </div>
+        </div>
+    </footer>
+    <!--End Main Footer-->
+</div>
+<!--End pagewrapper-->
+<!--Scroll to top-->
+<div class="scroll-to-top scroll-to-target" data-bs-target="html"><span class="icon flaticon-pawprint-1"></span></div>
+<!-- Color Palate / Color Switcher -->
+<!--    <div class="color-palate">-->
+<!--        <div class="color-trigger">-->
+<!--            <i class="flaticon-pawprint-1"></i>-->
+<!--        </div>-->
+<!--        <div class="color-palate-head">-->
+<!--            <h6>Choose Your Color</h6>-->
+<!--        </div>-->
+<!--        <div class="various-color clearfix">-->
+<!--            <div class="colors-list">-->
+<!--                <span class="palate default-color active" data-theme-file="{% static 'css/color-themes/default-theme.css' %}"></span>-->
+<!--                <span class="palate green-color" data-theme-file="{% static 'css/color-themes/green-theme.css' %}"></span>-->
+<!--                <span class="palate blue-color" data-theme-file="{% static 'css/color-themes/blue-theme.css' %}"></span>-->
+<!--                <span class="palate orange-color" data-theme-file="{% static 'css/color-themes/orange-theme.css' %}"></span>-->
+<!--                <span class="palate purple-color" data-theme-file="{% static 'css/color-themes/purple-theme.css' %}"></span>-->
+<!--                <span class="palate teal-color" data-theme-file="{% static 'css/color-themes/teal-theme.css' %}"></span>-->
+<!--                <span class="palate brown-color" data-theme-file="{% static 'css/color-themes/brown-theme.css' %}"></span>-->
+<!--                <span class="palate redd-color" data-theme-file="{% static 'css/color-themes/redd-color.css' %}"></span>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <a href="#" class="purchase-btn">Purchase now $17</a>-->
+<!--        <div class="palate-foo">-->
+<!--            <span>You will find much more options for colors and styling in admin panel. This color picker is used only-->
+<!--                for demonstation purposes.</span>-->
+<!--        </div>-->
+<!--    </div>-->
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'js/jquery.fancybox.js' %}"></script>
+<script src="{% static 'js/owl.js' %}"></script>
+<script src="{% static 'js/jquery-ui.js' %}"></script>
+<script src="{% static 'js/appear.js' %}"></script>
+<script src="{% static 'js/wow.min.js' %}"></script>
+<script src="{% static 'js/mixitup.js' %}"></script>
+<script src="{% static 'js/jquery.countdown.js' %}"></script>
+<script src="{% static 'js/gallery.js' %}"></script>
+<script src="{% static 'js/script.js' %}"></script>
+<script src="{% static 'js/color-settings.js' %}"></script>
+</body>
+
+
+<!-- Mirrored from www.shmai.com/preview/pawrex-html/index-3.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 08 Jan 2022 09:57:16 GMT -->
+</html>
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<script>
+  $( function() {
+
+    $( "#search" ).autocomplete({
+      source: '{% url 'pro_search'  %}'
+
+    });
+  });
+
+
+
+</script>

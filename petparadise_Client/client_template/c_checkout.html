@@ -1,0 +1,158 @@
+{% extends 'client_header.html' %}
+{% load static %}
+{% block content %}
+
+
+<!--Page Title-->
+<section class="page-title" style="background-image:url({% static 'images/background/7.jpg' %})">
+    <div class="auto-container">
+        <div class="clearfix">
+            <div class="pull-left">
+                <h1>Checkout</h1>
+            </div>
+            <div class="pull-right">
+                <ul class="page-breadcrumb">
+                    <li><a href="index.html">Home</a></li>
+                    <li>Checkout</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!--End Page Title-->
+<div class="sidebar-page-container">
+    <div class="auto-container">
+        <section class="padding ptb-xs-60">
+            <div class="romana_chect_out_form_area sp">
+                <div class="container">
+                    <div class="romana_check_out_form">
+                        <div class="row">
+                            <div class="col-lg-8 col-md-12">
+                                <div class="check_form_left common_input">
+                                    <div class="heading-box pb-30">
+                                        <h2><span>Billing</span> Address</h2>
+                                        <span class="b-line l-left"></span>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <input type="text" name="check_first_name" placeholder="Fast name" value="{{customer.c_name}}" readonly="1">
+                                        </div>
+<!--                                        <div class="col-sm-6">-->
+<!--                                            <input type="text" name="check_last_name" placeholder="Last name">-->
+<!--                                        </div>-->
+                                    </div>
+<!--                                    <div class="row">-->
+<!--                                        <div class="col-sm-12">-->
+<!--                                            <input type="text" name="check_company_name" placeholder="Compay">-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <input type="text" name="check_email" placeholder="Email" value="{{customer.c_email}}" readonly="1">
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input type="text" name="check_Number" placeholder="Phone" value="{{customer.c_contact}}" readonly="1">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+<!--                                        <div class="col-sm-6">-->
+<!--                                            <div class="select_option_one">-->
+<!--                                                <select name="userSelect" id="userSelect" class="">-->
+<!--                                                    <option value="1">Country</option>-->
+<!--                                                    <option value="2">Unitate State</option>-->
+<!--                                                    <option value="3">Canada</option>-->
+<!--                                                    <option value="4">Bangladesh</option>-->
+<!--                                                </select>-->
+<!--                                            </div>-->
+<!--                                            <div class="select_option_one">-->
+<!--                                                <select name="userSelect1" id="userSelect1" class="">-->
+<!--                                                    <option value="1">State</option>-->
+<!--                                                    <option value="2">Alabama</option>-->
+<!--                                                    <option value="3">Alaska</option>-->
+<!--                                                    <option value="4">Lowa</option>-->
+<!--                                                </select>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                        <div class="col-sm-6">-->
+<!--                                            <div class="select_option_one">-->
+<!--                                                <select name="userSelect2" id="userSelect2" class="">-->
+<!--                                                    <option value="1">City</option>-->
+<!--                                                    <option value="2">Bristol</option>-->
+<!--                                                    <option value="3">Washington</option>-->
+<!--                                                    <option value="4">Salem</option>-->
+<!--                                                </select>-->
+<!--                                            </div>-->
+<!--                                            <input type="text" name="check_zip" placeholder="Zip Code">-->
+<!--                                        </div>-->
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <input type="text" name="check_address" placeholder="Address" value="{{customer.c_address}}" readonly="1">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-12">
+                                <div class="check_form_right bg-color light-color">
+                                    <div class="heading-box pb-15 ">
+                                        <h2><span>Your</span> order</h2>
+                                        <span class="b-line l-left secondary_bg"></span>
+                                    </div>
+                                    <div class="product_order">
+                                        <ul>
+                                            <li>
+                                                product Quantity<span>total</span>
+                                            </li>
+                                            {% for data in product %}
+                                            <li>
+                                                {{data.product_id.product_name}}
+                                                ({{data.product_id.product_price}})x {{data.c_qty}}<span>{{data.total_amt}}</span>
+                                            </li>
+                                            {% endfor %}
+                                            <li>
+                                                subtotal:<span>{{total}}</span>
+                                            </li>
+                                            <li>
+                                                Shipping:<span>5</span>
+                                            </li>
+                                            <li>
+                                                total:<span>{{total|add:5}}</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <form method="POST" action="/client/placeorder/{{total|add:5}}">
+                                        {% csrf_token %}
+                                        <div class="romana_select_method ">
+                                            <ul class="mb-40">
+                                                <li>
+                                                    <input type="radio" id="option1" name="payment_status" value="1">
+                                                    <label for="option1">COD</label>
+                                                    <div class="check_text">
+                                                    </div>
+                                                    <div class="check"></div>
+                                                </li>
+                                                <li>
+                                                    <input type="radio" id="option2" name="payment_status" value="2">
+                                                    <label for="option2">Paypal</label>
+                                                    <div class="paypal_img">
+                                                        <!-- <img src="assets/images/paypal-card.png" alt=""> -->
+                                                    </div>
+                                                    <div class="check"></div>
+                                                </li>
+                                            </ul>
+                                            <button type="submit" class="theme-btn btn-style-three">place order</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        </form>
+                        <!-- column End -->
+                    </div>
+                    <!-- container End -->
+                </div>
+        </section>
+    </div>
+</div>
+
+{% endblock %}

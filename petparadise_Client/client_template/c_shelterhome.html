@@ -1,0 +1,65 @@
+{% extends 'client_header.html' %}
+{% load static %}
+{% block content %}
+
+
+
+ <section class="page-title" style="background-image:url({% static 'images/background/7.jpg)' %}">
+            <div class="auto-container">
+                <div class="clearfix">
+                    <div class="pull-left">
+                        <h1>Shelter Home</h1>
+                    </div>
+                    <div class="pull-right">
+                        <ul class="page-breadcrumb">
+                            <li><a href="/client/show_home/">Home</a></li>
+                            <li>Shelter Home</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="pet job">
+            <section class="job">
+                <div class="container">
+                    <div class="row mt-5">
+                        {% for data in shelter %}
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+
+                            <div class="card">
+                                <div class="image">
+                                    <img src="{% static '/assets/img/' %}{{data.shelter_image}}" alt="Image of Event" title="Event"
+                                        class="img-fluid">
+                                </div>
+                                <div class="desc">
+                                    <a href="#" title="Senior Pet Sitter">
+                                        <h5 class="text-center">{{data.shelter_name}} <span>
+                                            </span></h5>
+                                    </a>
+                                    <ul class="my-2">
+                                        <li><i class="fas fa-paw yellow me-2"></i>Shelter Email:
+                                            <span><a href="mailto: {{ data.shelter_email }}">{{ data.shelter_email }}</a></span>
+                                        </li>
+                                        <li><i class="fas fa-paw yellow me-2"></i>Shelter Contact:
+                                            <span><a href="tel: {{ data.shelter_contact }}">{{ data.shelter_contact }}</a></span>
+                                        </li>
+                                        <li><i class="fas fa-paw yellow me-2"></i>Shelter Address:
+                                            <span><a href="{{ data.shelter_location }}">{{ data.shelter_address }}</a></span>
+                                        </li>
+                                    </ul>
+<!--                                    <div class="button text-center">-->
+<!--                                        <a href="event-profile.html" class="btn main register">Explore</a>-->
+<!--                                    </div>-->
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </section>
+        </div>
+
+{% endblock %}
+

@@ -1,0 +1,325 @@
+{% extends 'client_header.html' %}
+{% load static %}
+{% load mathfilters %}
+{% load cart_tag %}
+{% block content %}
+
+<script>
+<!--    function up(max) {-->
+<!--    alert("max");-->
+
+<!--}-->
+function up(max) {
+
+	var qty = parseInt(document.getElementById("qty1-"+max).value) + 1;
+    document.getElementById("qty1-"+max).value = qty;
+		getQtyPlus(max);
+}
+
+function down(min) {
+	var qty = parseInt(document.getElementById("qty1-"+min).value) - 1;
+    document.getElementById("qty1-"+min).value = qty;
+
+	getQtyMius(min);
+}
+
+function getQty(val)
+{
+<!--	alert(val);-->
+	var q = $("#qty1-"+val).val();
+<!--	alert(q)-->
+		$.ajax({
+	        type:'GET',
+			url:'/client/update_cart/'+val,
+            data:{id:val,qty:q},
+			success: function(data){
+
+                    location.reload();
+			}
+	});
+}
+function getQtyPlus(val)
+{
+<!--	alert(val);-->
+	var q = $("#qty1-"+val).val();
+<!--	alert(q)-->
+		$.ajax({
+	        type:'GET',
+			url:'/client/update_cart/'+val,
+            data:{id:val,qty:q},
+			success: function(data){
+
+                    location.reload();
+			}
+	});
+
+}
+function getQtyMius(val)
+{
+<!--	alert(val);-->
+	var q = $("#qty1-"+val).val();
+<!--	alert(q)-->
+		$.ajax({
+	        type:'GET',
+			url:'/client/update_cart/'+val,
+            data:{id:val,qty:q},
+			success: function(data){
+
+                    location.reload();
+			}
+	});
+
+}
+
+</script>
+
+<!--Page Title-->
+<section class="page-title" style="background-image:url({% static 'images/background/7.jpg' %}">
+
+    <div class="auto-container">
+        <div class="clearfix">
+            <div class="pull-left">
+                <h1>Cart</h1>
+            </div>
+            <div class="pull-right">
+                <ul class="page-breadcrumb">
+                    <li><a href="/client/show_home/">Home</a></li>
+                    <li>Cart</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!--End Page Title-->
+<!--Sidebar Page Container-->
+<div class="sidebar-page-container">
+    <div class="auto-container">
+        <div class="clearfix">
+            <section class="padding ptb-xs-60">
+                <div class="cart_page_area sp100">
+                    <div class="container">
+                        <div class="cart_table_wraper">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="cart_wrpaer">
+                                        <div class="table_scroll table-responsive">
+                                            <table class="table">
+                                                <thead class="dark-bg">
+                                                <tr>
+                                                    <th><span>Product</span></th>
+                                                    <th><span>Product Name</span></th>
+                                                    <th><span>Date</span></th>
+                                                    <th><span>Quantity</span></th>
+                                                    <th><span>Price</span></th>
+                                                    <th><span></span></th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+
+                                                {% if 'client_id' in request.session %}
+                                                {% for data in cart %}
+                                                <tr>
+                                                    <td><img class="img-rounded"
+                                                             src="{% static 'assets/img/' %}{{data.product_id.product_image}}"
+                                                             alt="">
+                                                    </td>
+                                                    <td class="padding_all">
+                                                        <p>
+                                                            {{data.product_id.product_name}}
+                                                        </p>
+                                                    </td>
+                                                    <td class="padding_all">
+                                                        <p>
+                                                            {{data.c_date}}
+                                                        </p>
+                                                    </td>
+                                                    <td class="padding_all">
+                                                        <div class="cart_amount_wrap">
+                                                            <!--                                                                        <div class="product-regulator">-->
+                                                            <!--                                                                            <input type="number" class="form-control" value="{{data.c_qty}}">-->
+                                                            <!--                                                                        </div>-->
+                                                            <!--                                                                                                                        <div class="input-group">-->
+                                                            <!--                                                                                                                            <div class="input-group-btn">-->
+                                                            <!--                                                                                                                                <button id="down1" class="btn btn-default"-->
+                                                            <!--                                                                                                                                        onclick="down({{data.cart_id}})"><span-->
+                                                            <!--                                                                                                                                        class="glyphicon glyphicon-minus"-->
+                                                            <!--                                                                                                                                        onchange=""></span></button>-->
+                                                            <!--                                                                                                                            </div>-->
+                                                            <!--                                                                                                                            <input type="text" id="qty1-{{data.cart_id}}"-->
+                                                            <!--                                                                                                                                   style="text-align:center;width:55px;height:35px"-->
+                                                            <!--                                                                                                                                   value="{{data.quantity}}"-->
+                                                            <!--                                                                                                                                   onChange="getQty({{data.cart_id}})"/>-->
+                                                            <!--                                                                                                                            <div class="input-group-btn">-->
+                                                            <!--                                                                                                                                <button id="up1" class="btn btn-default"-->
+                                                            <!--                                                                                                                                        onclick="up({{data.cart_id}})"><span-->
+                                                            <!--                                                                                                                                        class="glyphicon glyphicon-plus"-->
+                                                            <!--                                                                                                                                        onchange=""></span></button>-->
+                                                            <!--                                                                                                                            </div>-->
+                                                            <!--                                                                                                                        </div>-->
+                                                            <div class="quantity">
+                                                                <!--                                                                <input step="1" min="1" max="5" name="c_qty"-->
+                                                                <!--                                                                       value="{{data.c_qty}}"-->
+                                                                <!--                                                                       title="Qty"-->
+                                                                <!--                                                                       class="input-text qty text" size="4"-->
+                                                                <!--                                                                       type="text" readonly>-->
+                                                                <div class="input-group">
+                                                                    <div class="input-group-btn">
+                                                                        <button id="down1" class="btn btn-default"
+                                                                                style="border:1px solid;height:50px"
+                                                                                onclick="down({{data.cart_id}})">-
+                                                                        </button>
+                                                                    </div>
+                                                                    <input class="input-text qty text" type="text"
+                                                                           id="qty1-{{data.cart_id}}"
+                                                                           value="{{data.c_qty}}"
+                                                                           onChange="getQty({{data.cart_id}})"/>
+
+                                                                    <button id="up1" class="btn btn-default"
+                                                                            style="border:1px solid;height:50px"
+                                                                            onclick="up({{data.cart_id}})">+
+                                                                    </button>
+
+                                                                </div>
+
+                                                                <!--                                        <input type="hidden" name="product_price" value="{{pro.product_price}}">-->
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="padding_all">
+                                                        <p>
+                                                            ${{data.total_amt}}
+                                                        </p>
+                                                    </td>
+                                                    <td class="padding_all"><a href="/client/del_cart/{{data.cart_id}}"><i
+                                                            class="fa fa-times"></i></a></td>
+                                                </tr>
+                                                {% endfor %}
+                                                {% else %}
+                                                {% for key,value in request.session.cart.items %}
+                                                <tr>
+                                                    <td><img class="img-rounded"
+                                                             src="{% static 'assets/img/' %}{{value.image}}"
+                                                             alt="">
+                                                    </td>
+                                                    <td class="padding_all">
+                                                        <p>
+                                                            {{value.name}}
+                                                        </p>
+                                                    </td>
+                                                    <td class="padding_all">
+                                                        <p>
+                                                            ${{value.price}}
+                                                        </p>
+                                                    </td>
+                                                    <td class="padding_all">
+                                                        <div class="cart_amount_wrap">
+                                                            <!--                                                                                                                                    <div class="product-regulator">-->
+                                                            <!--                                                                                                                                        <input type="number" class="form-control" value="{{data.c_qty}}">-->
+                                                            <!--                                                                                                                                    </div>-->
+                                                            <!--                                                                                                                        <div class="input-group">-->
+                                                            <!--                                                                                                                            <div class="input-group-btn">-->
+                                                            <button id="down" class="btn btn-default"
+                                                                    onclick="down({{data.cart_id}})"><span
+                                                                    class="glyphicon glyphicon-minus"
+                                                                    onchange=""></span></button>
+                                                        </div>
+                                                        <input type="text" id="qty-{{data.cart_id}}"
+                                                               style="text-align:center;width:55px;height:35px"
+                                                               value="{{data.quantity}}"
+                                                               onChange="getQty({{data.cart_id}})"/>
+                                                        <div class="input-group-btn">
+                                                            <button id="up" class="btn btn-default"
+                                                                    onclick="up({{data.cart_id}})"><span
+                                                                    class="glyphicon glyphicon-plus"
+                                                                    onchange=""></span></button>
+                                                        </div>
+                                                        <!--                                                                                                                        </div>-->
+                                                        <div class="quantity">
+                                                            <input type="button"
+                                                                   onclick="down(1)"><span
+                                                                class="glyphicon glyphicon-minus"
+                                                                onchange=""></span></input>
+                                                            <input step="1" min="1" max="5" name="c_qty"
+                                                                   value="{{value.quantity}}"
+                                                                   title="Qty"
+                                                                   class="input-text qty text" size="4"
+                                                                   type="number">
+                                                            <!--                                        <input type="hidden" name="product_price" value="{{pro.product_price}}">-->
+                                                        </div>
+                                        </div>
+                                        </td>
+                                        <td class="padding_all">
+                                            <p>
+                                                ${{value.price|multiply:value.quantity}}
+                                            </p>
+                                        </td>
+                                        <td class="padding_all"><a href="/client/del_cart/{{value.id}}"><i
+                                                class="fa fa-times"></i></a></td>
+                                        </tr>
+                                        {% endfor %}
+                                        {% endif %}
+                                        </tbody>
+                                        </table>
+                                        <!-- table End -->
+                                    </div>
+                                    <div class="row cart_btns">
+                                        <div class="col-lg-4 col-md-6 ">
+<!--                                            <form action="#">-->
+<!--                                                <input type="text" placeholder="Coupon Code"-->
+<!--                                                       class="common_btn cart_page_btn1" name="coupon">-->
+<!--                                            </form>-->
+                                        </div>
+                                        <div class="col-lg-4 col-md-6">
+<!--                                            <a class="theme-btn btn-style-three cart_page_btn2"-->
+<!--                                               href="#">Apply coupon</a>-->
+                                        </div>
+                                        <!-- column End -->
+                                        <div class="col-lg-4 col-md-12 btn-three text-end">
+                                            <a class="theme-btn btn-style-three" href="/client/clear_cart">Clear Cart
+                                            </a>
+                                        </div>
+                                        <!-- column End -->
+                                    </div>
+                                    <!-- cart_btns End -->
+                                </div>
+                            </div>
+                            <!-- column End -->
+                        </div>
+                        <!-- row End -->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="cart_totals_area gray-bg">
+                                    <ul>
+                                        <li>
+                                            Subtotal <span>${{total}}</span>
+                                        </li>
+                                        <li>
+                                            Shipping Charge<span>$5</span>
+                                        </li>
+                                        <li>
+                                            <strong>Total</strong><span><strong> ${{total|add:5}} </strong></span>
+                                        </li>
+                                    </ul>
+                                    {% if 'client_id' in request.session %}
+                                    <a class="theme-btn btn-style-three" href="/client/check_out/">Proceed To
+                                        Checkout</a>
+                                    {% else %}
+                                    <a class="theme-btn btn-style-three" href="/client/c_login/">Proceed To
+                                        Checkout</a>
+                                    {% endif %}
+
+                                </div>
+                            </div>
+                            <!-- column End -->
+                        </div>
+                        <!-- row End -->
+                    </div>
+                </div>
+                <!-- container End -->
+        </div>
+        </section>
+    </div>
+</div>
+</div>
+
+{% endblock %}

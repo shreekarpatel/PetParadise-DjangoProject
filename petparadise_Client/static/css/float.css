@@ -1,0 +1,343 @@
+    /* Floating image */
+
+    .an_image {
+        position: absolute;
+    }
+
+    .an_image_vt_ps_top.an_image {
+        top: 0;
+    }
+
+    .an_image_vt_ps_middle.an_image {
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+        bottom: auto;
+    }
+
+    .an_image_vt_ps_bottom.an_image {
+        bottom: 0;
+    }
+
+    .an_image_hz_ps_left.an_image {
+        left: 0;
+    }
+
+    .an_image_hz_ps_center.an_image {
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+    }
+
+    .an_image_hz_ps_right.an_image {
+        right: 0;
+    }
+
+    .an_image_hz_ps_right_end.an_image {
+        right: -50px;
+    }
+
+    .an_image .an_image_image {
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        transform: translateY(0);
+        -webkit-transition: transform 1200ms ease-out;
+        -moz-transition: transform 1200ms ease-out;
+        transition: transform 1200ms ease-out;
+    }
+
+    .an_image_anime_style_ease_out.an_image .an_image_image {
+        -webkit-transition: transform 1200ms ease-out;
+        -moz-transition: transform 1200ms ease-out;
+        transition: transform 1200ms ease-out;
+    }
+
+    .an_image_anime_style_ease_out_sine.an_image .an_image_image {
+        -webkit-transition: transform 1200ms cubic-bezier(.390, .575, .565, 1);
+        -moz-transition: transform 1200ms cubic-bezier(.390, .575, .565, 1);
+        transition: transform 1200ms cubic-bezier(.390, .575, .565, 1);
+    }
+
+    .an_image_anime_style_ease_in.an_image .an_image_image {
+        -webkit-transition: transform 1200ms ease-in;
+        -moz-transition: transform 1200ms ease-in;
+        transition: transform 1200ms ease-in;
+    }
+
+    .an_image_anime_style_ease_in_sine.an_image .an_image_image {
+        -webkit-transition: transform 1200ms cubic-bezier(.470, 0, .745, .715);
+        -moz-transition: transform 1200ms cubic-bezier(.470, 0, .745, .715);
+        transition: transform 1200ms cubic-bezier(.470, 0, .745, .715);
+    }
+
+    .an_image_anime_style_ease_in_out.an_image .an_image_image {
+        -webkit-transition: transform 1200ms ease-in-out;
+        -moz-transition: transform 1200ms ease-in-out;
+        transition: transform 1200ms ease-in-out;
+    }
+
+    .an_image_anime_style_ease_in_out_sine.an_image .an_image_image {
+        -webkit-transition: transform 1200ms cubic-bezier(.445, .050, .550, .950);
+        -moz-transition: transform 1200ms cubic-bezier(.445, .050, .550, .950);
+        transition: transform 1200ms cubic-bezier(.445, .050, .550, .950);
+    }
+
+    .an_image_anime_style_ease_in_out_back.an_image .an_image_image {
+        -webkit-transition: transform 1200ms cubic-bezier(.680, -.550, .265, 1.550);
+        -moz-transition: transform 1200ms cubic-bezier(.680, -.550, .265, 1.550);
+        transition: transform 1200ms cubic-bezier(.680, -.550, .265, 1.550);
+    }
+
+    .an_image .an_image_image:nth-of-type(5n + 2) {
+        -webkit-transition-duration: 1400ms;
+        -moz-transition-duration: 1400ms;
+        transition-duration: 1400ms;
+    }
+
+    .an_image .an_image_image:nth-of-type(5n + 3) {
+        -webkit-transition-duration: 1600ms;
+        -moz-transition-duration: 1600ms;
+        transition-duration: 1600ms;
+    }
+
+    .an_image .an_image_image:nth-of-type(5n + 4) {
+        -webkit-transition-duration: 1800ms;
+        -moz-transition-duration: 1800ms;
+        transition-duration: 1800ms;
+    }
+
+    /* anime duration */
+
+    .an_image_anime_duration_0.an_image .an_image_image {
+        -webkit-transition-duration: 0ms;
+        -moz-transition-duration: 0ms;
+        transition-duration: 0ms;
+    }
+
+    .an_image_anime_duration_100.an_image .an_image_image {
+        -webkit-transition-duration: 100ms;
+        -moz-transition-duration: 100ms;
+        transition-duration: 100ms;
+    }
+
+    .an_image_anime_duration_200.an_image .an_image_image {
+        -webkit-transition-duration: 200ms;
+        -moz-transition-duration: 200ms;
+        transition-duration: 200ms;
+    }
+
+    .an_image_anime_duration_300.an_image .an_image_image {
+        -webkit-transition-duration: 300ms;
+        -moz-transition-duration: 300ms;
+        transition-duration: 300ms;
+    }
+
+    .an_image_anime_duration_400.an_image .an_image_image {
+        -webkit-transition-duration: 400ms;
+        -moz-transition-duration: 400ms;
+        transition-duration: 400ms;
+    }
+
+    .an_image_anime_duration_500.an_image .an_image_image {
+        -webkit-transition-duration: 500ms;
+        -moz-transition-duration: 500ms;
+        transition-duration: 500ms;
+    }
+
+    .an_image_anime_duration_600.an_image .an_image_image {
+        -webkit-transition-duration: 600ms;
+        -moz-transition-duration: 600ms;
+        transition-duration: 600ms;
+    }
+
+    .an_image_anime_duration_700.an_image .an_image_image {
+        -webkit-transition-duration: 700ms;
+        -moz-transition-duration: 700ms;
+        transition-duration: 700ms;
+    }
+
+    .an_image_anime_duration_800.an_image .an_image_image {
+        -webkit-transition-duration: 800ms;
+        -moz-transition-duration: 800ms;
+        transition-duration: 800ms;
+    }
+
+    .an_image_anime_duration_900.an_image .an_image_image {
+        -webkit-transition-duration: 900ms;
+        -moz-transition-duration: 900ms;
+        transition-duration: 900ms;
+    }
+
+    .an_image_anime_duration_1000.an_image .an_image_image {
+        -webkit-transition-duration: 1000ms;
+        -moz-transition-duration: 1000ms;
+        transition-duration: 1000ms;
+    }
+
+    .an_image_anime_duration_1100.an_image .an_image_image {
+        -webkit-transition-duration: 1100ms;
+        -moz-transition-duration: 1100ms;
+        transition-duration: 1100ms;
+    }
+
+    .an_image_anime_duration_1200.an_image .an_image_image {
+        -webkit-transition-duration: 1200ms;
+        -moz-transition-duration: 1200ms;
+        transition-duration: 1200ms;
+    }
+
+    .an_image_anime_duration_1300.an_image .an_image_image {
+        -webkit-transition-duration: 1300ms;
+        -moz-transition-duration: 1300ms;
+        transition-duration: 1300ms;
+    }
+
+    .an_image_anime_duration_1400.an_image .an_image_image {
+        -webkit-transition-duration: 1400ms;
+        -moz-transition-duration: 1400ms;
+        transition-duration: 1400ms;
+    }
+
+    .an_image_anime_duration_1500.an_image .an_image_image {
+        -webkit-transition-duration: 1500ms;
+        -moz-transition-duration: 1500ms;
+        transition-duration: 1500ms;
+    }
+
+    .an_image_anime_duration_1600.an_image .an_image_image {
+        -webkit-transition-duration: 1600ms;
+        -moz-transition-duration: 1600ms;
+        transition-duration: 1600ms;
+    }
+
+    .an_image_anime_duration_1700.an_image .an_image_image {
+        -webkit-transition-duration: 1700ms;
+        -moz-transition-duration: 1700ms;
+        transition-duration: 1700ms;
+    }
+
+    .an_image_anime_duration_1800.an_image .an_image_image {
+        -webkit-transition-duration: 1800ms;
+        -moz-transition-duration: 1800ms;
+        transition-duration: 1800ms;
+    }
+
+    .an_image_anime_duration_1900.an_image .an_image_image {
+        -webkit-transition-duration: 1900ms;
+        -moz-transition-duration: 1900ms;
+        transition-duration: 1900ms;
+    }
+
+    .an_image_anime_duration_2000.an_image .an_image_image {
+        -webkit-transition-duration: 2000ms;
+        -moz-transition-duration: 2000ms;
+        transition-duration: 2000ms;
+    }
+
+    .an_image_anime_duration_2500.an_image .an_image_image {
+        -webkit-transition-duration: 2500ms;
+        -moz-transition-duration: 2500ms;
+        transition-duration: 2500ms;
+    }
+
+    .an_image_anime_duration_3000.an_image .an_image_image {
+        -webkit-transition-duration: 3000ms;
+        -moz-transition-duration: 3000ms;
+        transition-duration: 3000ms;
+    }
+
+    .an_image_anime_duration_3500.an_image .an_image_image {
+        -webkit-transition-duration: 3500ms;
+        -moz-transition-duration: 3500ms;
+        transition-duration: 3500ms;
+    }
+
+    .an_image_anime_duration_4000.an_image .an_image_image {
+        -webkit-transition-duration: 4000ms;
+        -moz-transition-duration: 4000ms;
+        transition-duration: 4000ms;
+    }
+
+    .an_image_anime_duration_5000.an_image .an_image_image {
+        -webkit-transition-duration: 5000ms;
+        -moz-transition-duration: 5000ms;
+        transition-duration: 5000ms;
+    }
+
+    .an_image_anime_duration_6000.an_image .an_image_image {
+        -webkit-transition-duration: 6000ms;
+        -moz-transition-duration: 6000ms;
+        transition-duration: 6000ms;
+    }
+
+    /* anime delay */
+
+    .an_image_anime_delay_0.an_image .an_image_image {
+        -webkit-transition-delay: 0ms;
+        -moz-transition-delay: 0ms;
+        transition-delay: 0ms;
+    }
+
+    .an_image_anime_delay_100.an_image .an_image_image {
+        -webkit-transition-delay: 100ms;
+        -moz-transition-delay: 100ms;
+        transition-delay: 100ms;
+    }
+
+    .an_image_anime_delay_200.an_image .an_image_image {
+        -webkit-transition-delay: 200ms;
+        -moz-transition-delay: 200ms;
+        transition-delay: 200ms;
+    }
+
+    .an_image_anime_delay_300.an_image .an_image_image {
+        -webkit-transition-delay: 300ms;
+        -moz-transition-delay: 300ms;
+        transition-delay: 300ms;
+    }
+
+    .an_image_anime_delay_400.an_image .an_image_image {
+        -webkit-transition-delay: 400ms;
+        -moz-transition-delay: 400ms;
+        transition-delay: 400ms;
+    }
+
+    .an_image_anime_delay_500.an_image .an_image_image {
+        -webkit-transition-delay: 500ms;
+        -moz-transition-delay: 500ms;
+        transition-delay: 500ms;
+    }
+
+    .an_image_anime_delay_600.an_image .an_image_image {
+        -webkit-transition-delay: 600ms;
+        -moz-transition-delay: 600ms;
+        transition-delay: 600ms;
+    }
+
+    .an_image_anime_delay_700.an_image .an_image_image {
+        -webkit-transition-delay: 700ms;
+        -moz-transition-delay: 700ms;
+        transition-delay: 700ms;
+    }
+
+    .an_image_anime_delay_800.an_image .an_image_image {
+        -webkit-transition-delay: 800ms;
+        -moz-transition-delay: 800ms;
+        transition-delay: 800ms;
+    }
+
+    .an_image_anime_delay_900.an_image .an_image_image {
+        -webkit-transition-delay: 900ms;
+        -moz-transition-delay: 900ms;
+        transition-delay: 900ms;
+    }
+
+    .an_image_anime_delay_1000.an_image .an_image_image {
+        -webkit-transition-delay: 1000ms;
+        -moz-transition-delay: 1000ms;
+        transition-delay: 1000ms;
+    }

@@ -1,0 +1,288 @@
+{% extends 'client_header.html' %}
+{% load static %}
+{% block content %}
+
+<!--Page Title-->
+<section class="page-title" style="background-image:url({% static 'images/background/7.jpg' %})">
+    <div class="auto-container">
+        <div class="clearfix">
+            <div class="pull-left">
+                <h1>Prodcut Detail</h1>
+            </div>
+            <div class="pull-right">
+                <ul class="page-breadcrumb">
+                    <li><a href="index.html">Home</a></li>
+                    <li>product detail</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!--End Page Title-->
+<!--Sidebar Page Container-->
+<div class="sidebar-page-container">
+    <div class="auto-container">
+        <!-- section -->
+        <section class="layout_padding_2">
+            <div class="container">
+                <form method="POST" action="/client/insert_cart/{{pro.product_id}}">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="full">
+                                <div class="thumb_product_slider">
+                                    <div class="item"><img src="{% static 'assets/img/' %}{{pro.product_image}}" height="450px" width="430px"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-7 product_detail_side detail_style1">
+                            <div class="product-heading">
+                                <h2>{{pro.product_name}}</h2>
+                            </div>
+                            <div class="product-detail-side">
+                                <span class="new-price">${{pro.product_price}}</span>
+                                {% if count_rate >= 4.0 %}
+                                <span class="rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </span>
+                                {% elif count_rate >= 3.0 %}
+                                <span class="rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-o"></i>
+                            </span>
+                                {% elif count_rate >= 2.0 %}
+                                <span class="rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                            </span>
+                                {% elif count_rate >= 1.0 %}
+                                <span class="rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                            </span>
+                                {% else %}
+                                <span class="rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                            </span>
+                                {% endif %}
+                                <span class="review">({{feed_count}} customer review)</span>
+                            </div>
+                            <div class="detail-contant">
+                                <p>{{pro.product_description}}
+                                    <br><span class="stock">{{pro.product_quantity}} in stock</span>
+                                </p>
+                                <form class="cart" method="post" action="">
+                                    <div class="quantity">
+                                        <input step="1" min="1" max="5" name="c_qty" value="1" title="Qty"
+                                               class="input-text qty text" size="4" type="number">
+<!--                                        <input type="hidden" name="product_price" value="{{pro.product_price}}">-->
+                                        <button type="submit" class="theme-btn btn-style-two">Add to cart</button>
+                                    </div>
+                                </form>
+                            </div>
+
+
+                            <form class="cart" method="post" action="/client/i_wishlist/">
+                                {% csrf_token %}
+                              <input type="hidden" name="product_id" value="{{pro.product_id}}">
+                              <button type="submit" data-toggle="tooltip" title="Wishlist" class="theme-btn btn-style-two"><i class="icon fa fa-heart"></i>Add to Wishlist</button>
+                            </form>
+                        </div>
+                    </div>
+                </form>
+                <div class="row" style="padding: 30px 0 0 0;">
+
+                    <div class="col-md-12">
+                        <div class="full">
+                            <div class="tab_bar_section">
+                                <ul class="nav nav-tabs" role="tablist">
+<!--                                    <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab"-->
+<!--                                                            data-bs-target="#description">-->
+<!--                                        Description</a></li>-->
+                                    <li class="nav-item">
+                                        <a class="nav-link active" data-bs-toggle="tab"
+                                           data-bs-target="#reviews">Reviews ({{feed_count}})</a>
+                                    </li>
+                                </ul>
+                                <!-- Tab panes -->
+                                <div class="tab-content">
+<!--                                    <div id="description" class="tab-pane active">-->
+<!--                                        <div class="product_desc">-->
+<!--                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas-->
+<!--                                                ac elementum elit. Morbi eu arcu ipsum. Aliquam lobortis-->
+<!--                                                accumsan quam ac convallis. Fusce elit mauris, aliquet at odio-->
+<!--                                                vel, convallis vehicula nisi. Morbi vitae porttitor dolor.-->
+<!--                                                Integer eget metus sem. Nam venenatis mauris vel leo pulvinar,-->
+<!--                                                id rutrum dui varius. Nunc ac varius quam, non convallis magna.-->
+<!--                                                Donec suscipit commodo dapibus.-->
+<!--                                                <br>-->
+<!--                                                <br>Vestibulum et ullamcorper ligula. Morbi bibendum tempor-->
+<!--                                                rutrum. Pelle tesque auctor purus id molestie ornare.Donec eu-->
+<!--                                                lobortis risus. Pellentesque sed aliquam lorem. Praesent-->
+<!--                                                pulvinar lorem vel mauris ultrices posuere. Phasellus elit ex,-->
+<!--                                                gravida a semper ut, venenatis vitae diam. Nullam eget leo-->
+<!--                                                massa. Aenean eu consequat arcu, vitae scelerisque quam.-->
+<!--                                                Suspendisse risus turpis, pharetra a finibus vitae, lobortis et-->
+<!--                                                mi.-->
+<!--                                            </p>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+                                    <div id="reviews" class="tab-pane active">
+                                        <div class="product_review">
+                                            <h3>Reviews ({{feed_count}})</h3>
+                                            {% for f in feed %}
+                                            <div class="commant-text row">
+<!--                                                <div class="col-lg-2 col-md-2 col-sm-4">-->
+<!--&lt;!&ndash;                                                    <div class="profile">&ndash;&gt;-->
+<!--&lt;!&ndash;                                                        <img class="img-responsive"&ndash;&gt;-->
+<!--&lt;!&ndash;                                                             src="{% static 'images/resource/author-1.jpg' %}" alt="#">&ndash;&gt;-->
+<!--&lt;!&ndash;                                                    </div>&ndash;&gt;-->
+<!--                                                </div>-->
+                                                <div class="col-lg-10 col-md-10 col-sm-8">
+                                                    <h5>{{f.c_id.c_name}}</h5>
+                                                    <p><span class="c_date">{{f.feedback_date}}</span></p>
+                                                    {% if f.rate == 5 %}
+                                                    <span class="rating">
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                            </span>
+                                                    {% elif f.rate == 4 %}
+                                                    <span class="rating">
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star-o"></i>
+                                                            </span>
+                                                    {% elif f.rate == 3 %}
+                                                    <span class="rating">
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star-o"></i>
+                                                                <i class="fa fa-star-o"></i>
+                                                            </span>
+                                                    {% elif f.rate == 2 %}
+                                                    <span class="rating">
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star-o"></i>
+                                                                <i class="fa fa-star-o"></i>
+                                                                <i class="fa fa-star-o"></i>
+                                                            </span>
+                                                    {% else %}
+                                                    <span class="rating">
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star-o"></i>
+                                                                <i class="fa fa-star-o"></i>
+                                                                <i class="fa fa-star-o"></i>
+                                                                <i class="fa fa-star-o"></i>
+                                                            </span>
+                                                    {% endif %}
+                                                    <p class="msg">{{f.feedback_message}}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            {% endfor %}
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <div class="full review_bt_section">
+                                                        <a class="theme-btn btn-style-two"
+                                                           data-bs-toggle="collapse"
+                                                           data-bs-target="#collapseExample">Leave a Review</a>
+                                                    </div>
+                                                    <div class="full">
+                                                        <div id="collapseExample"
+                                                             class="full collapse commant_box">
+                                                            <form accept-charset="UTF-8"
+                                                                  action="/client/insert_feedback/"
+                                                                  method="post">
+                                                                {% csrf_token %}
+                                                                <div>
+                                                                <span class="rating">
+                                                                    <input name="rate" type="radio" value="5">
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                </span>
+                                                                </div>
+                                                                <div>
+                                                                <span class="rating">
+                                                                    <input name="rate" type="radio" value="4">
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                </span>
+                                                                </div>
+                                                                <div>
+                                                                <span class="rating">
+                                                                    <input name="rate" type="radio" value="3">
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                </span>
+                                                                </div>
+                                                                <div>
+                                                                <span class="rating">
+                                                                    <input name="rate" type="radio" value="2">
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                </span>
+                                                                </div>
+                                                                <span class="rating">
+                                                                    <input name="rate" type="radio" value="1">
+                                                                    <i class="fa fa-star"></i>
+                                                                </span>
+                                                                <textarea class="form-control animated"
+                                                                          cols="50" id="new-review"
+                                                                          name="feedback_message"
+                                                                          placeholder="Enter your review here..."
+                                                                          required></textarea>
+                                                                <input type="hidden" name="product_id"
+                                                                       value="{{pro.product_id}}">
+                                                                <div class="full_bt center">
+                                                                    <button class="theme-btn btn-style-two"
+                                                                            type="submit">Save
+                                                                    </button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end section -->
+    </div>
+</div>
+{% endblock %}

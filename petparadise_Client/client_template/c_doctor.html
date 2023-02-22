@@ -1,0 +1,56 @@
+{% extends 'client_header.html' %}
+{% load static %}
+{% block content %}
+
+<!--Page Title-->
+        <section class="page-title" style="background-image:url({% static 'images/background/7.jpg' %})">
+            <div class="auto-container">
+                <div class="clearfix">
+                    <div class="pull-left">
+                        <h1>Doctor </h1>
+                    </div>
+                    <div class="pull-right">
+                        <ul class="page-breadcrumb">
+                            <li><a href="/client/show_home/">Home</a></li>
+                            <li>Doctor</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--End Page Title-->
+        <!--Team Section-->
+        <section class="team-section">
+            <div class="auto-container">
+                <!--Sec Title-->
+                <div class="sec-title centered">
+                    <div class="separator">
+                        <span class="icon flaticon-pawprint-1"></span>
+                    </div>
+                    <div class="title">Because We Really Care About Your Pets</div>
+                    <h2>Our Doctor Members</h2>
+                </div>
+                <div class="row clearfix">
+                    <!--Team Block-->
+                    {% for data in doctor %}
+                    <div class="team-block col-md-3 col-sm-6 col-xs-12">
+                        <div class="inner-box">
+                            <div class="image">
+                                <a href="/client/doctor_detail/"><img src="{% static 'assets/img/' %}{{data.doctor_image}}"/></a>
+                            </div>
+                            <div class="lower-box">
+                                <h3><a href="/client/doctor_detail/">{{ data.doctor_name }}</a></h3>
+<!--                                <div class="designation">founder</div>-->
+                                <div class="social-box">
+                                    <a href="/client/doctor_detail/{{data.doctor_id}}"><button type="submit" class="theme-btn btn-style-three" style="height: 50px; width: 200px;">View</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+        <!--End Team Section-->
+
+{% endblock %}

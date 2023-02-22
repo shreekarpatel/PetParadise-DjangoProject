@@ -1,0 +1,196 @@
+{% extends 'client_header.html' %}
+{% load static %}
+{% block content %}
+
+<!--Page Title-->
+<section class="page-title" style="background-image:url({% static 'images/background/7.jpg' %}">
+
+    <div class="auto-container">
+        <div class="clearfix">
+            <div class="pull-left">
+                <h1>Order</h1>
+            </div>
+            <div class="pull-right">
+                <ul class="page-breadcrumb">
+                    <li><a href="/client/show_home/">Home</a></li>
+                    <li>Order</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!--End Page Title-->
+<!--Sidebar Page Container-->
+<div class="sidebar-page-container">
+    <div class="auto-container">
+        <div class="clearfix">
+            <section class="padding ptb-xs-60">
+                <div class="cart_page_area sp100">
+                    <div class="container">
+                        <div class="cart_table_wraper">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="cart_wrpaer">
+                                        <div class="table_scroll table-responsive">
+                                            <table class="table">
+                                                <thead class="dark-bg">
+                                                <tr>
+                                                    <!--                                                    <th><span>Order ID</span></th>-->
+                                                    <th><span>Order Date</span></th>
+                                                    <!--                                                    <th><span>Customer ID</span></th>-->
+                                                    <th><span>Total Amount</span></th>
+                                                    <th><span>Order Status</span></th>
+                                                    <th><span>Payment Status</span></th>
+                                                    <th><span>Details</span></th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                {% for data in orders %}
+                                                <tr>
+
+                                                    <!--                                                    <td class="padding_all">-->
+                                                    <!--                                                        <p>-->
+                                                    <!--                                                            {{ data.order_id }}-->
+                                                    <!--                                                        </p>-->
+                                                    <!--                                                    </td>-->
+
+                                                    <td class="padding_all">
+                                                        <p>
+                                                            {{data.order_date}}
+                                                        </p>
+                                                    </td>
+
+                                                    <!--                                                    <td class="padding_all">-->
+                                                    <!--                                                        <p>-->
+                                                    <!--                                                            {{data.c_id.c_name}}-->
+                                                    <!--                                                        </p>-->
+                                                    <!--                                                    </td>-->
+
+                                                    <td class="padding_all">
+                                                        <p>
+                                                            ${{data.total_amount}}
+                                                        </p>
+                                                    </td>
+
+                                                    <td class="padding_all">
+                                                        <p>
+                                                            {% if data.order_status == '0' %}
+                                                            Pending
+                                                            {% elif data.order_status == '1' %}
+                                                            Accepted
+                                                            {% elif data.order_status == '2' %}
+                                                            Rejected
+                                                            {% endif %}
+                                                        </p>
+                                                    </td>
+
+                                                    <td class="padding_all">
+                                                        <p>
+
+                                                            {% if data.order_status == '1' and data.payment_status == 2 %}
+                                                                Paypal
+
+                                                        <form action="https://www.sandbox.paypal.com/cgi-bin/webscr"
+                                                              method="post">
+
+                                                            <input type="hidden" name="business"
+                                                                   value="shreekarpatel8055@gmail.com">
+
+                                                            <!-- Specify a Buy Now button. -->
+                                                            <input type="hidden" name="cmd" value="_xclick">
+
+                                                            <!-- Specify details about the item that buyers will purchase. -->
+                                                            <input type="hidden" name="item_name"
+                                                                   value="{{request.session.client_email}}">
+                                                            <input type="hidden" name="amount"
+                                                                   value="{{data.total_amount}}">
+                                                            <input type="hidden" name="currency_code" value="USD">
+
+                                                            <!-- Specify URLs -->
+                                                            <input type='hidden' name='cancel_return'
+                                                                   value='http://127.0.0.1:8000/client/fail_pay/{{data.order_id}}'>
+
+                                                            <input type='hidden' name='return'
+                                                                   value='http://127.0.0.1:8000/client/sucess_pay/{{data.order_id}}'>
+
+                                                            <!-- Display the payment button. -->
+                                                            <input type="image" name="submit" border="0"
+                                                                   src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif"
+                                                                   alt="PayPal - The safer, easier way to pay online">
+                                                            <img alt="" border="0" width="1" height="1"
+                                                                 src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif">
+                                                        </form>
+                                                        {% elif data.payment_status == 0 %}
+                                                        Pending
+                                                        {% elif data.payment_status == 1 %}
+                                                        Cash
+                                                        {% elif data.payment_status == 3 %}
+                                                        Payment completed
+                                                        {% endif %}
+                                                        </p>
+                                                    </td>
+
+                                                    <td class="padding_all">
+                                                        <a href="/client/c_item/{{data.order_id}}">view more</a>
+                                                    </td>
+                                                </tr>
+                                                {% endfor %}
+                                                </tbody>
+                                            </table>
+                                            <!-- table End -->
+                                        </div>
+                                        <!--                                        <div class="row cart_btns">-->
+                                        <!--                                            <div class="col-lg-4 col-md-6 ">-->
+                                        <!--                                                <form action="#">-->
+                                        <!--                                                    <input type="text" placeholder="Coupon Code"-->
+                                        <!--                                                           class="common_btn cart_page_btn1" name="coupon">-->
+                                        <!--                                                </form>-->
+                                        <!--                                            </div>-->
+                                        <!--                                            <div class="col-lg-4 col-md-6">-->
+                                        <!--                                                <a class="theme-btn btn-style-three cart_page_btn2"-->
+                                        <!--                                                   href="#">Apply coupon</a>-->
+                                        <!--                                            </div>-->
+                                        <!--                                            &lt;!&ndash; column End &ndash;&gt;-->
+                                        <!--                                            <div class="col-lg-4 col-md-12 btn-three text-end">-->
+                                        <!--                                                <a class="theme-btn btn-style-three" href="#">Continue Shopping-->
+                                        <!--                                                </a>-->
+                                        <!--                                            </div>-->
+                                        <!--                                            &lt;!&ndash; column End &ndash;&gt;-->
+                                        <!--                                        </div>-->
+                                        <!-- cart_btns End -->
+                                    </div>
+                                </div>
+                                <!-- column End -->
+                            </div>
+                            <!-- row End -->
+                            <!--                            <div class="row">-->
+                            <!--                                <div class="col-12">-->
+                            <!--                                    <div class="cart_totals_area gray-bg">-->
+                            <!--                                        <ul>-->
+                            <!--                                            <li>-->
+                            <!--                                                Subtotal <span>$29.99</span>-->
+                            <!--                                            </li>-->
+                            <!--                                            <li>-->
+                            <!--                                                Shipping Charge<span>free</span>-->
+                            <!--                                            </li>-->
+                            <!--                                            <li>-->
+                            <!--                                                <strong>Total</strong><span><strong> $ 59.99 </strong></span>-->
+                            <!--                                            </li>-->
+                            <!--                                        </ul>-->
+                            <!--                                        <a class="theme-btn btn-style-three" href="checkout.html">Proceed To-->
+                            <!--                                            Checkout</a>-->
+                            <!--                                    </div>-->
+                            <!--                                </div>-->
+                            <!--                                &lt;!&ndash; column End &ndash;&gt;-->
+                            <!--                            </div>-->
+                            <!-- row End -->
+                        </div>
+                    </div>
+                    <!-- container End -->
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

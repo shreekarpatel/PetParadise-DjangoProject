@@ -1,0 +1,46 @@
+{% extends 'client_header.html' %}
+{% load static %}
+{% block content %}
+
+ <!--Page Title-->
+        <section class="page-title" style="background-image:url({% static 'images/background/7.jpg' %})">
+            <div class="auto-container">
+                <div class="clearfix">
+                    <div class="pull-left">
+                        <h1>404</h1>
+                    </div>
+                    <div class="pull-right">
+                        <ul class="page-breadcrumb">
+                            <li><a href="/client/show_home/">Home</a></li>
+                            <li>404</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--End Page Title-->
+        <div class="sidebar-page-container">
+            <div class="auto-container">
+                <div class="page-head area-padding">
+                    <div class="container">
+                        <div class="error-page">
+                            <!-- map area -->
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="error-main-text text-center">
+                                        <h2 class="error-easy-text">Page Not Found</h2>
+                                        <h1 class="high-text">4<span class="color">0</span>4</h1>
+                                        <h3 class="error-bot">Oops, You are not login to access this page.</h3>
+                                        <a class="theme-btn btn-style-two error-btn" href="/client/c_login/">Go to Login/Register</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+{% endblock %}

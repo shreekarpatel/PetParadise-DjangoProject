@@ -1,0 +1,58 @@
+{% extends 'client_header.html' %}
+{% load static %}
+{% block content %}
+
+ <!--Page Title-->
+        <section class="page-title" style="background-image:url({% static 'images/background/7.jpg' %})">
+            <div class="auto-container">
+                <div class="clearfix">
+                    <div class="pull-left">
+                        <h1>Gallery</h1>
+                    </div>
+                    <div class="pull-right">
+                        <ul class="page-breadcrumb">
+                            <li><a href="/client/show_home/">Home</a></li>
+                            <li>gallery</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--End Page Title-->
+        <!--Gallery Section-->
+        <section class="gallery-section">
+            <div class="auto-container">
+                <!--Sec Title Two-->
+                <div class="sec-title-two centered">
+                    <div class="title-icon">
+                        <img src="{% static 'images/icons/title-icon.png' %}" alt="" />
+                </div>
+                        <h2>Gallery</h2>
+<!--                        <div class="text">For professional dog and cat grooming needs</div>-->
+                    </div>
+                    <div class="row clearfix">
+                        <!--Gallery Item-->
+                        {% for data in gallerys %}
+                        <div class="gallery-item col-md-4 col-sm-6 col-xs-12">
+                            <div class="inner-box">
+                                <figure class="image-box">
+                                    <img src="{% static 'assets/img/' %}{{data.image_path}}" alt="">
+                                    <!--Overlay Box-->
+                                    <div class="overlay-box">
+                                        <div class="overlay-inner">
+                                            <div class="content">
+                                                <a href="{% static 'assets/img/' %}{{data.image_path}}" data-fancybox="images" data-caption="" class="lightbox-image link"><span class="icon fa fa-search"></span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </figure>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+        </section>
+        <!--End Gallery Section-->
+
+
+{% endblock %}

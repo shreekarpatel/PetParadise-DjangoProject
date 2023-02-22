@@ -1,0 +1,53 @@
+{% extends 'client_header.html' %}
+{% load static %}
+{% block content %}
+
+<div class="pet service">
+    <section class="contact">
+
+        <div class="container">
+            <div class="heading text-center">
+                <p class="wow fadeInUp"><span class="purple"><i class="fas fa-paw"></i> </span><span
+                        class="orange"><i class="fas fa-paw"></i> </span><span class="purple"><i
+                        class="fas fa-paw"></i> </span></p>
+                <h2>Get An <span class="wow pulse" data-wow-delay="1s"> Appointment </span></h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="faq wow fadeInRight">
+                        <form method="POST" action="/client/c_appoint/{{did}}">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-lg-4 col-md-6 col-sm-12">
+                                    <div class="form-group">
+                                        <input type="date" id="date" class="form-control" placeholder="Date"
+                                               name="appointment_date" required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6 col-sm-12">
+                                    <select class="form-control select2" name="slot_id" placeholder="time">
+
+                                        {% if count >= 1 %}
+                                        {% for c in s %}
+                                        {% if c.s_status == 0 or c.s_status == 3 %}
+                                        <option value="{{c.slot_id}}">{{c.doctor_time}}</option>
+                                        {% endif %}
+                                        {% endfor %}
+                                        {%else%}
+                                        <option> No slot available </option>
+                                        {% endif %}
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn form-control hvr-rectangle-in">Send Request
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}

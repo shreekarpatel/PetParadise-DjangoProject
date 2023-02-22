@@ -1,0 +1,73 @@
+@charset "utf-8";
+/* CSS Document */
+
+a, .theme_color, .btn-style-three:hover, .sec-title .separator .icon, .featured-block .inner-box .content .icon-box, .services-block .inner-box:hover .icon-box, .services-block .inner-box h3 a:hover, .team-block .inner-box .lower-box h3 a:hover, .fact-counter .column:nth-child(2) .inner .icon-box, .fact-counter .column:nth-child(4) .inner .icon-box, .news-block .inner-box .lower-content h3 a:hover, .news-block .inner-box .lower-content .read-more, .social-icon-two li a:hover, .social-icon-three li a:hover, .services-block-two .inner-box h3 a:hover, .links-widget .links li a:hover::before, .services-block-three .inner-box .icon-box, .services-block-three .inner-box h3 a:hover, .services-block-four .inner-box h3 a:hover, .widget-post a, .widget-post a:hover, .cart-list li a:hover, .page-title .page-breadcrumb li a:hover, .product-block .inner-box .lower-content h3 a:hover, .product-block .inner-box .lower-content .price, .discount-section .content .discount-price, .popular-products-section .filters .filter.active, .popular-products-section .filters .filter:hover, .testimonial-section.style-two .inner-box .quote-icon, .services-block-five .inner-box .lower-content h3 a:hover, .services-block-five .inner-box .lower-content .read-more, .pets-box .inner-container h2, .cat-list li a:hover, .sidebar .popular-posts .post a:hover, .sidebar .popular-posts .post-info, .sidebar-page-container .comments-area .comment .comment-reply, .blog-single .inner-box .lower-content .post-share-options .tags a:hover, .pet-block .inner-box .image .overlay-box .overlay-inner .content ul li.share a, .main-header .sticky-header .main-menu .navigation>li:hover>a, .main-header .sticky-header .main-menu .navigation>li.current>a, .main-header .sticky-header .main-menu .navigation>li.current-menu-item>a, .high-text {
+	color: #2ECC40;
+}
+
+.what-we-offer .single-what-we-offer i.icon, .what-we-offer .single-what-we-offer i.fa, .text-box h3 span {
+	color: #2ECC40;
+}
+
+.what-we-offer .single-what-we-offer:hover i.icon, .what-we-offer .single-what-we-offer:hover i.fa {
+	color: #fff;
+}
+
+.btns-box-4 a.service {
+	background-color: #2ECC40;
+	border: 2px solid #2ECC40;
+}
+
+.btns-box-4 a.service:hover {
+	background-color: transparent;
+	color: #2ECC40;
+}
+
+.history_section .content-column a {
+	background-color: #2ECC40;
+	border: 2px solid #2ECC40;
+}
+
+.history_section .content-column a:hover {
+	background-color: transparent;
+	color: #2ECC40;
+}
+
+.main-slider-4 h1 i, .color-primary, a.color-primary, .event-schedule h5, .calories-calulator .tab-content label span, .calories-calulator .nav>li>a:hover, .custom-check:before {
+	color: #2ECC40;
+}
+
+.color-palate-head, .hvr-bounce-to-bottom:before, .page-signin .body-inner:before, .horizontal-tabs .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+	background-color: #2ECC40;
+}
+
+.color-trigger, .bg-theme-colored {
+	background-color: #2ECC40;
+}
+
+.dark-bg, .masonry-filter a.active, .masonry-filter a:active, .masonry-filter a:hover, .masonry-filter a:focus, .input-group-addon {
+	background-color: #2ECC40;
+}
+
+/*Border Color*/
+
+.scroll-to-top, .list-style-one li:before, .list-style-one li:after, .btn-style-three, .btn-style-six:hover, .btn-style-seven:hover, .cat-list li a:before, .cat-list li a:after, .main-footer.style-two, .main-header .search-box-outer .dropdown-menu, .main-header .search-panel input:focus, .main-header .search-panel select:focus, .ui-state-active, .ui-widget-content .ui-state-active, .fact-counter .column:nth-child(2) .inner .icon-box, .fact-counter .column:nth-child(4) .inner .icon-box, .pet-block .inner-box .image .overlay-box .overlay-inner .content ul li a:hover, .single-testimonial-style-two .img-box, .brows-job-list:hover, .custom-check {
+	border-color: #2ECC40;
+}
+
+/*Background Color*/
+
+.scroll-to-top, .btn-style-three, .btn-style-six:hover, .mission-section, .btn-style-seven:hover, .product-form .theme-btn, .featured-block-three .inner-box, .emailed-form .theme-btn, .header-top, .infosection, .main-slider .tparrows.gyges:hover, .social-icon-four a:hover, .appointment-section, .news-block .inner-box .image .post-date, .news-block-two .inner-box .image .post-date, .sidebar .search-box .form-group button, .ui-state-active, .ui-widget-content .ui-state-active, .main-menu .navigation>li>ul>li>ul>li>a:hover, .main-menu .navigation>li>ul>li:hover>a, .testimonial-section.style-two .owl-dots .owl-dot.active:before, .blog-single .inner-box .lower-content .title-box .date-box, .pet-block .inner-box .image .overlay-box .overlay-inner .content ul li a:hover {
+	background-color: #2ECC40;
+}
+
+/*RGBA Color Dark*/
+
+@media only screen and (max-width: 767px) {
+	.main-menu .navbar-header .navbar-toggle {
+		border-color: #2ECC40;
+	}
+	.main-menu .navbar-header .navbar-toggle, .main-menu .navbar-collapse>.navigation, .main-menu .navbar-collapse>.navigation>li>ul, .main-menu .navbar-collapse>.navigation>li>ul>li>ul, .main-menu .navbar-collapse>.navigation>li>a, .main-menu .navbar-collapse>.navigation>li>ul>li>a, .main-menu .navbar-collapse>.navigation>li>ul>li>ul>li>a, .main-menu .navbar-collapse>.navigation>li>a:hover, .main-menu .navbar-collapse>.navigation>li>a:active, .main-menu .navbar-collapse>.navigation>li>a:focus, .main-menu .navbar-collapse>.navigation>li:hover>a, .main-menu .navbar-collapse>.navigation>li>ul>li:hover>a, .main-menu .navbar-collapse>.navigation>li>ul>li>ul>li:hover>a, .main-menu .navbar-collapse>.navigation>li.current>a, .main-menu .navbar-collapse>.navigation>li.current-menu-item>a, .header-style-two.inner-header .main-menu .navigation>li>a {
+		background-color: #2ECC40;
+	}
+}

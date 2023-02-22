@@ -1,0 +1,55 @@
+/* Hover.css */
+
+/* Pet */
+
+.pet a.hvr-overline-from-center:before {
+    background: var(--pt_orange);
+}
+
+.pet a.btn.main:before {
+    background: var(--pt_purple);
+}
+
+.pet a[title="whatsapp"]:before {
+    background: var(--pt_orange);
+    border: 2px solid var(--pt_orange);
+}
+
+.pet a[title="facebook"]:before {
+    background: var(--pt_orange);
+    border: 2px solid var(--pt_orange);
+}
+
+.pet a[title="twitter"]:before {
+    background: var(--pt_yellow);
+    border: 2px solid var(--pt_yellow);
+}
+
+.pet a[title="instagram"]:before {
+    background: var(--pt_purple);
+    border: 2px solid var(--pt_purple);
+}
+
+.pet a[title="youtube"]:before {
+    background: var(--pt_black);
+    border: 2px solid var(--pt_black);
+}
+
+.pet a[title="linkedin"]:before {
+    background: var(--pt_black);
+    border: 2px solid var(--pt_black);
+}
+
+.pet a[title="google"]:before {
+    background: var(--pt_black);
+    border: 2px solid var(--pt_black);
+}
+
+.pet button.btn:before {
+    background: var(--pt_orange);
+}
+
+.pet a#back2Top:before {
+    background: var(--pt_orange);
+    color: var(--pt_black);
+}
